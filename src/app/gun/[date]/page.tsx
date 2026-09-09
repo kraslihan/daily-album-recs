@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { Suspense } from "react";
 
-import { DailyAlbumView } from "@/components/daily-album-view";
+import { AlbumContent } from "@/components/album-content";
+import { AlbumSkeleton } from "@/components/album-skeleton";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { catalogSize, dayKeyToNumber, getAlbumForDay, getNextMidnight, getTodayKey, isValidDayKey, shiftDayKey } from "@/lib/daily";
-import { resolveAlbum } from "@/lib/resolve";
 
 export const dynamic = "force-dynamic";
 
 type Props = PageProps<"/gun/[date]">;
 
 /** Only the archive is browsable: future days stay a surprise. */
-function resolveDayKey(date: string, todayKey: string): "today" | "future" | "too-old" | "invalid" | "ok" {
+function classifyDay(date: string, todayKey: string): "today" | "future" | "too-old" | "invalid" | "ok" {
   if (!isValidDayKey(date)) return "invalid";
   const n = dayKeyToNumber(date);
   const today = dayKeyToNumber(todayKey);
@@ -32,13 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArchiveDayPage({ params }: Props) {
   const { date } = await params;
   const todayKey = getTodayKey();
-  const state = resolveDayKey(date, todayKey);
+  const state = classifyDay(date, todayKey);
 
   if (state === "today" || state === "future") redirect("/");
   if (state === "invalid" || state === "too-old") notFound();
 
   const album = getAlbumForDay(date);
-  const data = await resolveAlbum(album);
   const nextMidnightIso = getNextMidnight(new Date()).toISOString();
 
   const prevKey = shiftDayKey(date, -1);
@@ -50,7 +50,9 @@ export default async function ArchiveDayPage({ params }: Props) {
     <>
       <SiteHeader dayKey={date} isToday={false} prevHref={prevHref} nextHref={nextHref} nextMidnightIso={nextMidnightIso} />
       <main className="flex-1">
-        <DailyAlbumView data={data} isToday={false} nextMidnightIso={nextMidnightIso} />
+        <Suspense fallback={<AlbumSkeleton />}>
+          <AlbumContent album={album} isToday={false} nextMidnightIso={nextMidnightIso} />
+        </Suspense>
       </main>
       <SiteFooter />
     </>

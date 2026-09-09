@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
-import { DailyAlbumView } from "@/components/daily-album-view";
+import { AlbumContent } from "@/components/album-content";
+import { AlbumSkeleton } from "@/components/album-skeleton";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getAlbumForDay, getNextMidnight, getTodayKey, shiftDayKey } from "@/lib/daily";
-import { resolveAlbum } from "@/lib/resolve";
 
 // The album depends on the current date in Europe/Istanbul, so the page renders per request.
 export const dynamic = "force-dynamic";
@@ -17,18 +18,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function TodayPage() {
+export default function TodayPage() {
   const now = new Date();
   const dayKey = getTodayKey();
   const album = getAlbumForDay(dayKey);
-  const data = await resolveAlbum(album);
   const nextMidnightIso = getNextMidnight(now).toISOString();
 
   return (
     <>
       <SiteHeader dayKey={dayKey} isToday prevHref={`/gun/${shiftDayKey(dayKey, -1)}`} nextHref={null} nextMidnightIso={nextMidnightIso} />
       <main className="flex-1">
-        <DailyAlbumView data={data} isToday nextMidnightIso={nextMidnightIso} />
+        <Suspense fallback={<AlbumSkeleton />}>
+          <AlbumContent album={album} isToday nextMidnightIso={nextMidnightIso} />
+        </Suspense>
       </main>
       <SiteFooter />
     </>
