@@ -174,7 +174,7 @@
   background-size: cover;
   background-position: center;
   filter: blur(80px) saturate(1.4);
-  opacity: 0.35;
+  opacity: 0.5;
   transform: scale(1.1);
 }
 .album-backdrop::after {
@@ -239,8 +239,11 @@
   inset: 0;
   border-radius: 9999px;
   background:
-    repeating-radial-gradient(circle at center, rgb(255 255 255 / 0.045) 0 1px, transparent 1px 3px),
-    radial-gradient(circle at center, #1c1c20 0 22%, #0c0c0e 23%, #151518 60%, #0a0a0c 100%);
+    repeating-radial-gradient(circle at center, rgb(255 255 255 / 0.09) 0 1px, transparent 1px 3px),
+    radial-gradient(circle at center, #2c2c32 0 22%, #17171a 23%, #26262b 60%, #141417 100%);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.14),
+    0 0 40px rgb(0 0 0 / 0.6) inset;
   animation: vinyl-spin 8s linear infinite;
 }
 .vinyl-disc-inner::before {
@@ -248,7 +251,7 @@
   position: absolute;
   inset: 0;
   border-radius: 9999px;
-  background: conic-gradient(from 200deg, transparent 0deg, rgb(255 255 255 / 0.12) 30deg, transparent 70deg, transparent 200deg, rgb(255 255 255 / 0.08) 230deg, transparent 260deg);
+  background: conic-gradient(from 200deg, transparent 0deg, rgb(255 255 255 / 0.28) 30deg, transparent 75deg, transparent 200deg, rgb(255 255 255 / 0.18) 230deg, transparent 265deg);
   mix-blend-mode: screen;
 }
 .vinyl-label {
