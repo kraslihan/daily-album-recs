@@ -1,14 +1,26 @@
-import { catalog } from "./catalog";
-import type { Album } from "./types";
+import { coreAlbums } from "./catalog-core";
+import { discoveryAlbums } from "./catalog-discovery";
+import { similarAlbums } from "./catalog-similar";
+import type { Album, AlbumLane } from "./types";
+
+const discoveryPool: Album[] = [...similarAlbums, ...discoveryAlbums];
 
 /** The day rolls over at 00:00 in this timezone, regardless of where the visitor is. */
 export const TIMEZONE = "Europe/Istanbul";
 
-/** Fixed seed so the rotation order is identical on every server, forever. */
+/** Fixed seed so the shuffle order is identical on every server, forever. */
 const ROTATION_SEED = 20261030;
 
 const DAY_MS = 86_400_000;
 const DAY_KEY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+/**
+ * 3-day loop:
+ *   day % 3 === 0  → an album by one of the listener's own artists
+ *   day % 3 === 1  → discovery
+ *   day % 3 === 2  → discovery
+ */
+export const CYCLE_LENGTH = 3;
 
 function mulberry32(seed: number) {
   let a = seed >>> 0;
@@ -31,13 +43,10 @@ function seededShuffle<T>(items: T[], rand: () => number): T[] {
 }
 
 /**
- * Deterministic rotation built with stride scheduling: an artist with k albums gets a
- * stride of N/k, so their records are spread evenly across the whole cycle instead of
- * bunching up, and two albums by the same artist never land on consecutive days.
- * Everything is driven by a fixed seed, so every server computes the same order.
+ * Spread an artist's albums across the list so the same name is not back-to-back.
  */
-export function buildRotation(albums: Album[] = catalog): Album[] {
-  const rand = mulberry32(ROTATION_SEED);
+function spreadByArtist(albums: Album[], seed: number): Album[] {
+  const rand = mulberry32(seed);
   const groups = new Map<string, Album[]>();
   for (const album of albums) {
     const list = groups.get(album.artist) ?? [];
@@ -66,7 +75,26 @@ export function buildRotation(albums: Album[] = catalog): Album[] {
   return rotation;
 }
 
-const rotation = buildRotation();
+const knownRotation = spreadByArtist(coreAlbums, ROTATION_SEED);
+const discoveryRotation = spreadByArtist(discoveryPool, ROTATION_SEED + 1);
+
+export function getLaneForDay(dayKey: string): AlbumLane {
+  const n = dayKeyToNumber(dayKey);
+  return ((n % CYCLE_LENGTH) + CYCLE_LENGTH) % CYCLE_LENGTH === 0 ? "known" : "discovery";
+}
+
+export function getAlbumForDay(dayKey: string): Album {
+  const n = dayKeyToNumber(dayKey);
+  const slot = ((n % CYCLE_LENGTH) + CYCLE_LENGTH) % CYCLE_LENGTH;
+  const cycle = Math.floor(n / CYCLE_LENGTH);
+
+  if (slot === 0) {
+    return knownRotation[((cycle % knownRotation.length) + knownRotation.length) % knownRotation.length];
+  }
+
+  const discoveryIndex = cycle * 2 + (slot - 1);
+  return discoveryRotation[((discoveryIndex % discoveryRotation.length) + discoveryRotation.length) % discoveryRotation.length];
+}
 
 function zonedParts(date: Date, timeZone: string) {
   const dtf = new Intl.DateTimeFormat("en-US", {
@@ -126,12 +154,6 @@ export function getNextMidnight(now: Date = new Date()): Date {
   return zonedMidnight(shiftDayKey(getDayKey(now), 1));
 }
 
-export function getAlbumForDay(dayKey: string): Album {
-  const n = dayKeyToNumber(dayKey);
-  const index = ((n % rotation.length) + rotation.length) % rotation.length;
-  return rotation[index];
-}
-
 export function getTodayKey(): string {
   return getDayKey(new Date());
 }
@@ -147,4 +169,8 @@ export function formatDayKey(dayKey: string, locale = "tr-TR"): string {
   }).format(new Date(Date.UTC(y, m - 1, d)));
 }
 
-export const catalogSize = rotation.length;
+export const knownCatalogSize = knownRotation.length;
+export const discoveryCatalogSize = discoveryRotation.length;
+/** How far back the archive goes: a little over a year of unique days. */
+export const catalogSize = 400;
+export const catalogTotal = knownRotation.length + discoveryRotation.length;

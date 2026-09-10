@@ -5,7 +5,7 @@ import { AlbumContent } from "@/components/album-content";
 import { AlbumSkeleton } from "@/components/album-skeleton";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { getAlbumForDay, getNextMidnight, getTodayKey, shiftDayKey } from "@/lib/daily";
+import { getAlbumForDay, getLaneForDay, getNextMidnight, getTodayKey, shiftDayKey } from "@/lib/daily";
 
 // The album depends on the current date in Europe/Istanbul, so the page renders per request.
 export const dynamic = "force-dynamic";
@@ -29,7 +29,7 @@ export default function TodayPage() {
       <SiteHeader dayKey={dayKey} isToday prevHref={`/gun/${shiftDayKey(dayKey, -1)}`} nextHref={null} nextMidnightIso={nextMidnightIso} />
       <main className="flex-1">
         <Suspense fallback={<AlbumSkeleton />}>
-          <AlbumContent album={album} isToday nextMidnightIso={nextMidnightIso} />
+          <AlbumContent album={album} lane={getLaneForDay(dayKey)} isToday nextMidnightIso={nextMidnightIso} />
         </Suspense>
       </main>
       <SiteFooter />

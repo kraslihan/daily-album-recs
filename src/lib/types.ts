@@ -22,6 +22,9 @@ export type Album = {
   relatedTo: string[];
 };
 
+/** Day-1 albums from the listener's own artists vs. days 2–3 discoveries. */
+export type AlbumLane = "known" | "discovery";
+
 export type Track = {
   position: number;
   title: string;

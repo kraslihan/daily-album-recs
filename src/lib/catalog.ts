@@ -1,8 +1,9 @@
 import { coreAlbums } from "./catalog-core";
+import { discoveryAlbums } from "./catalog-discovery";
 import { similarAlbums } from "./catalog-similar";
 import type { Album } from "./types";
 
-export const catalog: Album[] = [...coreAlbums, ...similarAlbums];
+export const catalog: Album[] = [...coreAlbums, ...similarAlbums, ...discoveryAlbums];
 
 const bySlug = new Map(catalog.map((a) => [a.slug, a]));
 

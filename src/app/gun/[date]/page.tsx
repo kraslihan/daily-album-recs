@@ -6,7 +6,7 @@ import { AlbumContent } from "@/components/album-content";
 import { AlbumSkeleton } from "@/components/album-skeleton";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { catalogSize, dayKeyToNumber, getAlbumForDay, getNextMidnight, getTodayKey, isValidDayKey, shiftDayKey } from "@/lib/daily";
+import { catalogSize, dayKeyToNumber, getAlbumForDay, getLaneForDay, getNextMidnight, getTodayKey, isValidDayKey, shiftDayKey } from "@/lib/daily";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +51,7 @@ export default async function ArchiveDayPage({ params }: Props) {
       <SiteHeader dayKey={date} isToday={false} prevHref={prevHref} nextHref={nextHref} nextMidnightIso={nextMidnightIso} />
       <main className="flex-1">
         <Suspense fallback={<AlbumSkeleton />}>
-          <AlbumContent album={album} isToday={false} nextMidnightIso={nextMidnightIso} />
+          <AlbumContent album={album} lane={getLaneForDay(date)} isToday={false} nextMidnightIso={nextMidnightIso} />
         </Suspense>
       </main>
       <SiteFooter />

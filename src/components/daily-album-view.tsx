@@ -1,4 +1,4 @@
-import { Lightbulb, MapPin, Sparkles, Users } from "lucide-react";
+import { Compass, Library, Lightbulb, MapPin, Sparkles, Users } from "lucide-react";
 
 import { CopyButton } from "@/components/copy-button";
 import { Countdown } from "@/components/countdown";
@@ -8,10 +8,11 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { VinylCover } from "@/components/vinyl-cover";
 import { bulletTracklist } from "@/lib/format";
-import type { ResolvedAlbum } from "@/lib/types";
+import type { AlbumLane, ResolvedAlbum } from "@/lib/types";
 
 type Props = {
   data: ResolvedAlbum;
+  lane: AlbumLane;
   isToday: boolean;
   nextMidnightIso: string;
 };
@@ -25,7 +26,7 @@ function formatReleaseDate(iso: string | null): string | null {
   );
 }
 
-export function DailyAlbumView({ data, isToday, nextMidnightIso }: Props) {
+export function DailyAlbumView({ data, lane, isToday, nextMidnightIso }: Props) {
   const { album, coverUrl, coverSmallUrl, tracks, spotifyAlbumUrl, releaseDate, label } = data;
   const tracklistText = bulletTracklist(tracks.map((t) => t.title));
   const release = formatReleaseDate(releaseDate);
@@ -48,6 +49,10 @@ export function DailyAlbumView({ data, isToday, nextMidnightIso }: Props) {
 
           <div className="mt-8">
             <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="outline" className="rounded-full border-white/15 bg-white/5 text-[11px] uppercase tracking-[0.16em]">
+                {lane === "known" ? <Library className="size-3" /> : <Compass className="size-3" />}
+                {lane === "known" ? "Kütüphanenden" : "Keşif"}
+              </Badge>
               <Badge variant="outline" className="rounded-full border-white/15 bg-white/5 text-[11px] uppercase tracking-[0.16em]">
                 <Sparkles className="size-3" />
                 {isToday ? "Bugünün albümü" : "Günün albümü"}
