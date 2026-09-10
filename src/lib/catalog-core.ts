@@ -11,7 +11,7 @@ export const coreAlbums: Album[] = [
     title: "Three Days Grace",
     year: 2003,
     deezerId: 78624,
-    genres: ["Post-grunge", "Alternative metal"],
+    genres: ["Post-grunge", "Alternatif metal"],
     origin: "Norwood, Ontario, Kanada",
     why: "Kütüphanendeki en sevdiğin grubun her şeyin başladığı ilk albümü.",
     story: [
@@ -34,7 +34,7 @@ export const coreAlbums: Album[] = [
     title: "One-X",
     year: 2006,
     deezerId: 932593,
-    genres: ["Post-grunge", "Alternative metal"],
+    genres: ["Post-grunge", "Alternatif metal"],
     origin: "Norwood, Ontario, Kanada",
     why: "\"Animal I Have Become\" ve \"Pain\" — Three Days Grace'in en karanlık ve en çok dinlenen dönemi.",
     story: [
@@ -57,7 +57,7 @@ export const coreAlbums: Album[] = [
     title: "Life Starts Now",
     year: 2009,
     deezerId: 1441167,
-    genres: ["Post-grunge", "Alternative rock"],
+    genres: ["Post-grunge", "Alternatif rock"],
     origin: "Norwood, Ontario, Kanada",
     why: "Karanlıktan sonra gelen ışık: Gontier'in iyileşme döneminin albümü.",
     story: [
@@ -80,7 +80,7 @@ export const coreAlbums: Album[] = [
     title: "Transit of Venus",
     year: 2012,
     deezerId: 5969214,
-    genres: ["Alternative rock", "Electronic rock"],
+    genres: ["Alternatif rock", "Elektronik rock"],
     origin: "Norwood, Ontario, Kanada",
     why: "Adam Gontier'li son albüm — grubun en deneysel ve elektronik dokulu işi.",
     story: [
@@ -103,7 +103,7 @@ export const coreAlbums: Album[] = [
     title: "Human",
     year: 2015,
     deezerId: 9816984,
-    genres: ["Alternative metal", "Hard rock"],
+    genres: ["Alternatif metal", "Hard rock"],
     origin: "Norwood, Ontario, Kanada",
     why: "Matt Walst dönemine giriş: \"Painkiller\" ve \"I Am Machine\" ile grubun yeni sesi.",
     story: [
@@ -128,7 +128,7 @@ export const coreAlbums: Album[] = [
     title: "Light Me Up",
     year: 2010,
     deezerId: 321208987,
-    genres: ["Hard rock", "Alternative rock"],
+    genres: ["Hard rock", "Alternatif rock"],
     origin: "New York City, ABD",
     why: "Taylor Momsen'in oyunculuğu bırakıp rock yıldızına dönüştüğü çıkış albümü.",
     story: [
@@ -222,7 +222,7 @@ export const coreAlbums: Album[] = [
     title: "We Are Not Alone",
     year: 2004,
     deezerId: 11019040,
-    genres: ["Post-grunge", "Alternative metal"],
+    genres: ["Post-grunge", "Alternatif metal"],
     origin: "Wilkes-Barre, Pennsylvania, ABD",
     why: "\"So Cold\" ve \"Sooner or Later\" — Breaking Benjamin'i ana akıma taşıyan albüm.",
     story: [
@@ -245,7 +245,7 @@ export const coreAlbums: Album[] = [
     title: "Phobia",
     year: 2006,
     deezerId: 13793191,
-    genres: ["Alternative metal", "Post-grunge"],
+    genres: ["Alternatif metal", "Post-grunge"],
     origin: "Wilkes-Barre, Pennsylvania, ABD",
     why: "\"The Diary of Jane\" ve \"Breath\" ile Breaking Benjamin'in en ikonik albümü.",
     story: [
@@ -268,7 +268,7 @@ export const coreAlbums: Album[] = [
     title: "Dear Agony",
     year: 2009,
     deezerId: 426788,
-    genres: ["Alternative metal", "Hard rock"],
+    genres: ["Alternatif metal", "Hard rock"],
     origin: "Wilkes-Barre, Pennsylvania, ABD",
     why: "\"I Will Not Bow\" ve başlık şarkısı: Burnley'nin acıyla yazdığı mektup.",
     story: [
@@ -291,7 +291,7 @@ export const coreAlbums: Album[] = [
     title: "Dark Before Dawn",
     year: 2015,
     deezerId: 10537870,
-    genres: ["Alternative metal", "Hard rock"],
+    genres: ["Alternatif metal", "Hard rock"],
     origin: "Wilkes-Barre, Pennsylvania, ABD",
     why: "Beş yıllık sessizlikten sonra gelen geri dönüş — ve grubun ilk 1 numaralı albümü.",
     story: [
@@ -316,12 +316,12 @@ export const coreAlbums: Album[] = [
     title: "A Fever You Can't Sweat Out",
     year: 2005,
     deezerId: 344626,
-    genres: ["Pop punk", "Baroque pop", "Dance-punk"],
+    genres: ["Pop punk", "Barok pop", "Dans-punk"],
     origin: "Las Vegas, Nevada, ABD",
     why: "\"I Write Sins Not Tragedies\" — daha hiç konser vermemiş bir grubun efsane çıkışı.",
     story: [
       "Las Vegas'ın Summerlin banliyösünden lise arkadaşları olan grup, demolarını PureVolume'a yükledi ve Fall Out Boy'un basçısı Pete Wentz'e link attı. Wentz demoları dinledi, Vegas'a uçtu ve grubu daha tek bir konser bile vermemişken Decaydance/Fueled by Ramen'a imzalattı.",
-      "Albüm bilinçli olarak iki yarıya bölünmüştür: ilk yarı synth'li dance-punk, \"Intermission\" sonrası ikinci yarı ise akordeon ve klavsenle bezenmiş vodvil/barok pop. Ryan Ross'un Chuck Palahniuk ve Douglas Coupland romanlarından beslenen uzun şarkı isimleri ve \"I Write Sins Not Tragedies\" klibinin MTV Video of the Year ödülü, grubu emo kuşağının en garip ve en popüler ismi yaptı.",
+      "Albüm bilinçli olarak iki yarıya bölünmüştür: ilk yarı synth ağırlıklı dans-punk, \"Intermission\" sonrası ikinci yarı ise akordeon ve klavsenle bezenmiş vodvil/barok pop. Ryan Ross'un Chuck Palahniuk ve Douglas Coupland romanlarından beslenen uzun şarkı isimleri ve \"I Write Sins Not Tragedies\" klibinin MTV'den aldığı Yılın Klibi ödülü, grubu emo kuşağının en garip ve en popüler ismi yaptı.",
     ],
     artistInfo:
       "Panic! At the Disco 2004'te Brendon Urie (vokal), Ryan Ross (gitar, ana söz yazarı), Spencer Smith (davul) ve Brent Wilson (bas) tarafından kuruldu. Grup adı Name Taken'ın \"Panic\" şarkısından geliyor.",
@@ -339,7 +339,7 @@ export const coreAlbums: Album[] = [
     title: "Pretty. Odd.",
     year: 2008,
     deezerId: 92592,
-    genres: ["Psychedelic pop", "Baroque pop", "Folk rock"],
+    genres: ["Psikedelik pop", "Barok pop", "Folk rock"],
     origin: "Las Vegas, Nevada, ABD",
     why: "Panic'in Beatles'a yazdığı aşk mektubu — kütüphanendeki iki dünyayı birleştiren albüm.",
     story: [
@@ -362,7 +362,7 @@ export const coreAlbums: Album[] = [
     title: "Vices & Virtues",
     year: 2011,
     deezerId: 928878,
-    genres: ["Pop rock", "Baroque pop", "Alternative rock"],
+    genres: ["Pop rock", "Barok pop", "Alternatif rock"],
     origin: "Las Vegas, Nevada, ABD",
     why: "İkiye düşen bir grubun ayakta kalma albümü: \"The Ballad of Mona Lisa\".",
     story: [
@@ -385,7 +385,7 @@ export const coreAlbums: Album[] = [
     title: "Death of a Bachelor",
     year: 2016,
     deezerId: 12107828,
-    genres: ["Pop rock", "Swing", "Alternative"],
+    genres: ["Pop rock", "Swing", "Alternatif"],
     origin: "Las Vegas, Nevada, ABD",
     why: "Brendon Urie'nin tek kişilik şovu: Sinatra ve Queen'in buluştuğu 1 numaralı albüm.",
     story: [
@@ -410,7 +410,7 @@ export const coreAlbums: Album[] = [
     title: "I Love You.",
     year: 2013,
     deezerId: 6505633,
-    genres: ["Alternative rock", "Indie pop", "Dark pop"],
+    genres: ["Alternatif rock", "Bağımsız pop", "Karanlık pop"],
     origin: "Newbury Park, Kaliforniya, ABD",
     why: "\"Sweater Weather\"ın albümü: siyah-beyaz estetik, hip-hop ritimleri ve Kaliforniya melankolisi.",
     story: [
@@ -433,7 +433,7 @@ export const coreAlbums: Album[] = [
     title: "Wiped Out!",
     year: 2015,
     deezerId: 11539620,
-    genres: ["Alternative R&B", "Indie rock", "Dark pop"],
+    genres: ["Alternatif R&B", "Bağımsız rock", "Karanlık pop"],
     origin: "Newbury Park, Kaliforniya, ABD",
     why: "\"Daddy Issues\" ve \"R.I.P. 2 My Youth\" — gece sürüşleri için yazılmış bir albüm.",
     story: [
@@ -456,7 +456,7 @@ export const coreAlbums: Album[] = [
     title: "Hard to Imagine the Neighbourhood Ever Changing",
     year: 2018,
     deezerId: 77068962,
-    genres: ["Alternative rock", "Synth-pop", "Dark pop"],
+    genres: ["Alternatif rock", "Synth-pop", "Karanlık pop"],
     origin: "Newbury Park, Kaliforniya, ABD",
     why: "\"Scary Love\", \"Softcore\" ve \"Stuck with Me\" — grubun 2017-18 döneminin tamamı tek yerde.",
     story: [
@@ -481,7 +481,7 @@ export const coreAlbums: Album[] = [
     title: "Night Visions",
     year: 2012,
     deezerId: 5668261,
-    genres: ["Pop rock", "Alternative rock", "Indie pop"],
+    genres: ["Pop rock", "Alternatif rock", "Bağımsız pop"],
     origin: "Las Vegas, Nevada, ABD",
     why: "\"Radioactive\", \"Demons\", \"It's Time\" — Imagine Dragons'ı dünyaya tanıtan çıkış albümü.",
     story: [
@@ -504,7 +504,7 @@ export const coreAlbums: Album[] = [
     title: "Smoke + Mirrors",
     year: 2015,
     deezerId: 9659730,
-    genres: ["Alternative rock", "Pop rock"],
+    genres: ["Alternatif rock", "Pop rock"],
     origin: "Las Vegas, Nevada, ABD",
     why: "Şöhretin ardındaki şüpheler: Imagine Dragons'ın en kişisel ve rock ağırlıklı albümü.",
     story: [
@@ -527,7 +527,7 @@ export const coreAlbums: Album[] = [
     title: "Evolve",
     year: 2017,
     deezerId: 68346981,
-    genres: ["Pop rock", "Electropop"],
+    genres: ["Pop rock", "Elektro-pop"],
     origin: "Las Vegas, Nevada, ABD",
     why: "\"Believer\", \"Thunder\" ve \"Whatever It Takes\" — üç dev hit barındıran albüm.",
     story: [
@@ -552,7 +552,7 @@ export const coreAlbums: Album[] = [
     title: "Rubber Soul",
     year: 1965,
     deezerId: 161447252,
-    genres: ["Folk rock", "Pop rock", "Psychedelic pop"],
+    genres: ["Folk rock", "Pop rock", "Psikedelik pop"],
     origin: "Liverpool, İngiltere",
     why: "Beatles'ın pop grubundan sanatçıya dönüştüğü an; Brian Wilson'ın Pet Sounds'a ilham veren albüm.",
     story: [
@@ -575,7 +575,7 @@ export const coreAlbums: Album[] = [
     title: "Revolver",
     year: 1966,
     deezerId: 161950962,
-    genres: ["Psychedelic rock", "Pop rock"],
+    genres: ["Psikedelik rock", "Pop rock"],
     origin: "Liverpool, İngiltere",
     why: "Stüdyonun bir enstrümana dönüştüğü albüm: \"Tomorrow Never Knows\" ve \"Eleanor Rigby\".",
     story: [
@@ -598,7 +598,7 @@ export const coreAlbums: Album[] = [
     title: "Sgt. Pepper's Lonely Hearts Club Band",
     year: 1967,
     deezerId: 162030002,
-    genres: ["Psychedelic rock", "Art rock", "Pop"],
+    genres: ["Psikedelik rock", "Sanat rock'ı", "Pop"],
     origin: "Liverpool, İngiltere",
     why: "Rock tarihinin en çok konuşulan albümü — Grammy'de Yılın Albümü ödülünü alan ilk rock kaydı.",
     story: [
@@ -621,7 +621,7 @@ export const coreAlbums: Album[] = [
     title: "Abbey Road",
     year: 1969,
     deezerId: 164909482,
-    genres: ["Rock", "Pop rock", "Progressive pop"],
+    genres: ["Rock", "Pop rock", "Progresif pop"],
     origin: "Liverpool, İngiltere",
     why: "Beatles'ın kaydettiği son albüm: \"Come Together\", \"Something\" ve efsanevi B yüzü medley'i.",
     story: [
@@ -646,7 +646,7 @@ export const coreAlbums: Album[] = [
     title: "Broken Bells",
     year: 2010,
     deezerId: 496177,
-    genres: ["Indie pop", "Neo-psychedelia", "Alternative rock"],
+    genres: ["Bağımsız pop", "Neo-psikedeli", "Alternatif rock"],
     origin: "Los Angeles, Kaliforniya, ABD",
     why: "The Shins'in James Mercer'ı ve Danger Mouse'un buluşması — \"The High Road\" ve \"The Ghost Inside\".",
     story: [
@@ -669,7 +669,7 @@ export const coreAlbums: Album[] = [
     title: "After the Disco",
     year: 2014,
     deezerId: 7960652,
-    genres: ["Indie pop", "Disco", "Synth-pop"],
+    genres: ["Bağımsız pop", "Disko", "Synth-pop"],
     origin: "Los Angeles, Kaliforniya, ABD",
     why: "Broken Bells'in Bee Gees falsettosuyla dans pistine indiği, uzay temalı ikinci albümü.",
     story: [

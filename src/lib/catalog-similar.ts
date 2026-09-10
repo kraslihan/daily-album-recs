@@ -11,7 +11,7 @@ export const similarAlbums: Album[] = [
     title: "Hybrid Theory",
     year: 2000,
     deezerId: 260137,
-    genres: ["Nu metal", "Alternative rock", "Rap rock"],
+    genres: ["Nu metal", "Alternatif rock", "Rap rock"],
     origin: "Agoura Hills, Kaliforniya, ABD",
     why: "Three Days Grace ve Breaking Benjamin'i seviyorsan, 2000'lerin rock sesini kuran albüm bu.",
     story: [
@@ -34,7 +34,7 @@ export const similarAlbums: Album[] = [
     title: "Meteora",
     year: 2003,
     deezerId: 1346746,
-    genres: ["Nu metal", "Alternative rock"],
+    genres: ["Nu metal", "Alternatif rock"],
     origin: "Agoura Hills, Kaliforniya, ABD",
     why: "\"Numb\", \"Faint\", \"Breaking the Habit\" — ikinci albüm laneti diye bir şey olmadığının kanıtı.",
     story: [
@@ -57,7 +57,7 @@ export const similarAlbums: Album[] = [
     title: "Wonder What's Next",
     year: 2002,
     deezerId: 71683,
-    genres: ["Alternative metal", "Post-grunge"],
+    genres: ["Alternatif metal", "Post-grunge"],
     origin: "Grayslake, Illinois, ABD",
     why: "\"The Red\" ve \"Send the Pain Below\" — Breaking Benjamin sevenler için doğal bir sonraki durak.",
     story: [
@@ -80,7 +80,7 @@ export const similarAlbums: Album[] = [
     title: "Karma and Effect",
     year: 2005,
     deezerId: 8015752,
-    genres: ["Post-grunge", "Alternative metal"],
+    genres: ["Post-grunge", "Alternatif metal"],
     origin: "Pretoria, Güney Afrika",
     why: "\"Remedy\" ve \"Truth\" — Güney Afrika'dan çıkan en büyük post-grunge grubunun zirvesi.",
     story: [
@@ -115,7 +115,7 @@ export const similarAlbums: Album[] = [
     members: ["Lzzy Hale – vokal, gitar", "Joe Hottinger – gitar", "Josh Smith – bas", "Arejay Hale – davul"],
     funFacts: [
       "Grup Grammy ödülünü alırken Lzzy 'kadın vokalli' değil sadece 'bir rock grubu' olduklarını vurguladı.",
-      "\"Freak Like Me\" ve \"I Miss the Misery\" Active Rock radyolarında 1 numaraya çıktı.",
+      "\"Freak Like Me\" ve \"I Miss the Misery\" aktif rock radyolarında 1 numaraya çıktı.",
       "Arejay Hale konserlerde dev baget kullanmasıyla ünlü.",
     ],
     relatedTo: ["The Pretty Reckless", "Three Days Grace"],
@@ -149,7 +149,7 @@ export const similarAlbums: Album[] = [
     title: "The Black Parade",
     year: 2006,
     deezerId: 257854,
-    genres: ["Emo", "Alternative rock", "Rock opera"],
+    genres: ["Emo", "Alternatif rock", "Rock operası"],
     origin: "Newark, New Jersey, ABD",
     why: "Panic! At the Disco'nun teatralliğini seviyorsan, emo kuşağının rock operası burada.",
     story: [
@@ -195,7 +195,7 @@ export const similarAlbums: Album[] = [
     title: "AM",
     year: 2013,
     deezerId: 6899610,
-    genres: ["Indie rock", "Alternative rock", "Psychedelic rock"],
+    genres: ["Bağımsız rock", "Alternatif rock", "Psikedelik rock"],
     origin: "Sheffield, İngiltere",
     why: "The Neighbourhood'un gece havasını seviyorsan: Dr. Dre ritimleriyle Black Sabbath riffleri.",
     story: [
@@ -218,7 +218,7 @@ export const similarAlbums: Album[] = [
     title: "Whatever People Say I Am, That's What I'm Not",
     year: 2006,
     deezerId: 401340,
-    genres: ["Indie rock", "Garage rock", "Post-punk revival"],
+    genres: ["Bağımsız rock", "Garaj rock", "Post-punk canlanması"],
     origin: "Sheffield, İngiltere",
     why: "İngiliz tarihinin en hızlı satan çıkış albümü; Sheffield gecelerinin gözlem defteri.",
     story: [
@@ -241,7 +241,7 @@ export const similarAlbums: Album[] = [
     title: "Wincing the Night Away",
     year: 2007,
     deezerId: 185286352,
-    genres: ["Indie rock", "Indie pop"],
+    genres: ["Bağımsız rock", "Bağımsız pop"],
     origin: "Albuquerque, New Mexico, ABD",
     why: "Broken Bells'in sesi James Mercer'ın kendi grubuyla yaptığı en büyük albüm.",
     story: [
@@ -264,7 +264,7 @@ export const similarAlbums: Album[] = [
     title: "Demon Days",
     year: 2005,
     deezerId: 301752,
-    genres: ["Alternative hip hop", "Art pop", "Trip hop"],
+    genres: ["Alternatif hip hop", "Sanat pop'u", "Trip hop"],
     origin: "Londra, İngiltere",
     why: "Danger Mouse'un Broken Bells'ten önceki başyapıtı; kapağı Beatles'ın Let It Be'sine selam veriyor.",
     story: [
@@ -287,7 +287,7 @@ export const similarAlbums: Album[] = [
     title: "Blurryface",
     year: 2015,
     deezerId: 10236282,
-    genres: ["Alternative", "Pop rap", "Electropop"],
+    genres: ["Alternatif", "Pop rap", "Elektro-pop"],
     origin: "Columbus, Ohio, ABD",
     why: "Panic! ve Imagine Dragons dinleyicilerinin bir sonraki büyük keşfi: \"Stressed Out\" ve \"Ride\".",
     story: [
@@ -310,7 +310,7 @@ export const similarAlbums: Album[] = [
     title: "That's the Spirit",
     year: 2015,
     deezerId: 11130386,
-    genres: ["Alternative rock", "Electronic rock", "Alternative metal"],
+    genres: ["Alternatif rock", "Elektronik rock", "Alternatif metal"],
     origin: "Sheffield, İngiltere",
     why: "\"Throne\", \"Drown\" ve \"Happy Song\" — metalcore'dan arena rock'a dönüşün albümü.",
     story: [
@@ -333,7 +333,7 @@ export const similarAlbums: Album[] = [
     title: "Riot!",
     year: 2007,
     deezerId: 356913,
-    genres: ["Pop punk", "Emo pop", "Alternative rock"],
+    genres: ["Pop punk", "Emo pop", "Alternatif rock"],
     origin: "Franklin, Tennessee, ABD",
     why: "Breaking Benjamin'in prodüktörü David Bendeth'in elinden çıkan pop-punk klasiği.",
     story: [
@@ -379,7 +379,7 @@ export const similarAlbums: Album[] = [
     title: "Fallen",
     year: 2003,
     deezerId: 8015598,
-    genres: ["Gothic metal", "Alternative metal", "Nu metal"],
+    genres: ["Gotik metal", "Alternatif metal", "Nu metal"],
     origin: "Little Rock, Arkansas, ABD",
     why: "\"Bring Me to Life\" ve \"My Immortal\" — Pretty Reckless öncesi kadın vokalli rock'ın dönüm noktası.",
     story: [
@@ -402,7 +402,7 @@ export const similarAlbums: Album[] = [
     title: "Royal Blood",
     year: 2014,
     deezerId: 8310464,
-    genres: ["Hard rock", "Blues rock", "Garage rock"],
+    genres: ["Hard rock", "Blues rock", "Garaj rock"],
     origin: "Brighton, İngiltere",
     why: "Sadece bas ve davulla stadyum dolduran ikili — Arctic Monkeys'in kefil olduğu çıkış.",
     story: [
@@ -425,7 +425,7 @@ export const similarAlbums: Album[] = [
     title: "Nothing But Thieves",
     year: 2015,
     deezerId: 16576221,
-    genres: ["Alternative rock", "Indie rock"],
+    genres: ["Alternatif rock", "Bağımsız rock"],
     origin: "Southend-on-Sea, İngiltere",
     why: "Conor Mason'ın falsetto vokali ve \"Trip Switch\" — Imagine Dragons ile Muse arasında bir köprü.",
     story: [
@@ -448,7 +448,7 @@ export const similarAlbums: Album[] = [
     title: "Mister Asylum",
     year: 2015,
     deezerId: 10802828,
-    genres: ["Alternative rock", "Blues rock", "Grunge"],
+    genres: ["Alternatif rock", "Blues rock", "Grunge"],
     origin: "Cape Cod, Massachusetts, ABD",
     why: "\"Lydia\" ve \"Bloodfeather\" — Grammy adayı bir çıkış; Pretty Reckless'in bluesy karanlığını seviyorsan.",
     story: [
@@ -471,7 +471,7 @@ export const similarAlbums: Album[] = [
     title: "El Camino",
     year: 2011,
     deezerId: 1376944,
-    genres: ["Garage rock", "Blues rock"],
+    genres: ["Garaj rock", "Blues rock"],
     origin: "Akron, Ohio, ABD",
     why: "Danger Mouse'un ortak prodüktörlüğünde \"Lonely Boy\" ve \"Gold on the Ceiling\" — üç Grammy'li albüm.",
     story: [
@@ -494,7 +494,7 @@ export const similarAlbums: Album[] = [
     title: "Bad Blood",
     year: 2013,
     deezerId: 320446167,
-    genres: ["Indie pop", "Synth-pop", "Alternative"],
+    genres: ["Bağımsız pop", "Synth-pop", "Alternatif"],
     origin: "Londra, İngiltere",
     why: "\"Pompeii\" — Imagine Dragons'ın stadyum pop'unu seviyorsan İngiliz karşılığı bu.",
     story: [
@@ -517,7 +517,7 @@ export const similarAlbums: Album[] = [
     title: "American Idiot",
     year: 2004,
     deezerId: 90799,
-    genres: ["Punk rock", "Rock opera", "Alternative rock"],
+    genres: ["Punk rock", "Rock operası", "Alternatif rock"],
     origin: "Berkeley, Kaliforniya, ABD",
     why: "Panic!'in teatralliğiyle Three Days Grace'in öfkesini birleştiren punk rock operası.",
     story: [
@@ -540,7 +540,7 @@ export const similarAlbums: Album[] = [
     title: "Hot Fuss",
     year: 2004,
     deezerId: 164869492,
-    genres: ["Indie rock", "New wave", "Post-punk revival"],
+    genres: ["Bağımsız rock", "New wave", "Post-punk canlanması"],
     origin: "Las Vegas, Nevada, ABD",
     why: "Imagine Dragons ve Panic!'ten önce Las Vegas'tan çıkan büyük grup; \"Mr. Brightside\"ın albümü.",
     story: [
@@ -563,7 +563,7 @@ export const similarAlbums: Album[] = [
     title: "Absolution",
     year: 2003,
     deezerId: 511257691,
-    genres: ["Alternative rock", "Progressive rock", "Space rock"],
+    genres: ["Alternatif rock", "Progresif rock", "Uzay rock"],
     origin: "Teignmouth, İngiltere",
     why: "\"Time Is Running Out\" ve \"Hysteria\" — Imagine Dragons'ın stadyum rock'ının İngiliz atası.",
     story: [
@@ -586,7 +586,7 @@ export const similarAlbums: Album[] = [
     title: "The Colour and the Shape",
     year: 1997,
     deezerId: 8247832,
-    genres: ["Alternative rock", "Post-grunge"],
+    genres: ["Alternatif rock", "Post-grunge"],
     origin: "Seattle, Washington, ABD",
     why: "\"Everlong\" ve \"My Hero\" — post-grunge'ın kurucu metni; Three Days Grace'in kökleri burada.",
     story: [
@@ -609,7 +609,7 @@ export const similarAlbums: Album[] = [
     title: "Awake",
     year: 2009,
     deezerId: 383513,
-    genres: ["Hard rock", "Christian rock", "Alternative metal"],
+    genres: ["Hard rock", "Hristiyan rock", "Alternatif metal"],
     origin: "Memphis, Tennessee, ABD",
     why: "\"Monster\", \"Hero\", \"Awake and Alive\" — Three Days Grace'in prodüktörü Howard Benson'ın elinden.",
     story: [
@@ -632,7 +632,7 @@ export const similarAlbums: Album[] = [
     title: "OK, I'm Sick",
     year: 2019,
     deezerId: 87718482,
-    genres: ["Alternative rock", "Hard rock", "Grunge"],
+    genres: ["Alternatif rock", "Hard rock", "Grunge"],
     origin: "Los Angeles, Kaliforniya, ABD",
     why: "\"Ghost\" ve \"Heroin\" — Three Days Grace'in dürüstlüğünü yeni kuşakta arıyorsan.",
     story: [
@@ -655,7 +655,7 @@ export const similarAlbums: Album[] = [
     title: "A Beautiful Lie",
     year: 2005,
     deezerId: 299307,
-    genres: ["Alternative rock", "Emo", "Space rock"],
+    genres: ["Alternatif rock", "Emo", "Uzay rock"],
     origin: "Los Angeles, Kaliforniya, ABD",
     why: "\"The Kill\" ve \"From Yesterday\" — Breaking Benjamin sevenlerin sıklıkla yanına koyduğu albüm.",
     story: [
@@ -678,7 +678,7 @@ export const similarAlbums: Album[] = [
     title: "Nevermind",
     year: 1991,
     deezerId: 1252978,
-    genres: ["Grunge", "Alternative rock"],
+    genres: ["Grunge", "Alternatif rock"],
     origin: "Aberdeen, Washington, ABD",
     why: "Three Days Grace, Breaking Benjamin, Seether — hepsinin ortak atası. Post-grunge'ın 'grunge'ı.",
     story: [
