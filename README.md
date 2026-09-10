@@ -60,4 +60,4 @@ Katalog değiştiğinde rotasyon yeniden hesaplanır; sıralama `src/lib/daily.t
 
 ## Dağıtım
 
-Next.js uygulamasıdır; Vercel'e doğrudan dağıtılabilir. Ortam değişkeni zorunlu değildir.
+Next.js uygulamasıdır; Vercel'e doğrudan dağıtılabilir. Ortam değişkeni zorunlu değildir. Depo Vercel'e bağlıdır; `main` dalına yapılan her push otomatik olarak yeni bir dağıtım tetikler.
