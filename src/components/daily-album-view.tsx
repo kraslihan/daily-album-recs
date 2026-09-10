@@ -1,13 +1,10 @@
 import { Compass, Library, Lightbulb, MapPin, Sparkles, Users } from "lucide-react";
 
-import { CopyButton } from "@/components/copy-button";
 import { Countdown } from "@/components/countdown";
 import { SpotifyIcon } from "@/components/spotify-icon";
 import { TrackPanel } from "@/components/track-panel";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { VinylCover } from "@/components/vinyl-cover";
-import { bulletTracklist } from "@/lib/format";
 import type { AlbumLane, ResolvedAlbum } from "@/lib/types";
 
 type Props = {
@@ -27,8 +24,7 @@ function formatReleaseDate(iso: string | null): string | null {
 }
 
 export function DailyAlbumView({ data, lane, isToday, nextMidnightIso }: Props) {
-  const { album, coverUrl, coverSmallUrl, tracks, spotifyAlbumUrl, releaseDate, label } = data;
-  const tracklistText = bulletTracklist(tracks.map((t) => t.title));
+  const { album, coverUrl, coverSmallUrl, spotifyAlbumUrl, releaseDate, label } = data;
   const release = formatReleaseDate(releaseDate);
 
   return (
@@ -95,25 +91,7 @@ export function DailyAlbumView({ data, lane, isToday, nextMidnightIso }: Props) 
             </a>
           </div>
 
-          <Separator className="my-8 bg-white/8" />
-
-          <section aria-labelledby="tracks-heading">
-            <div className="flex items-center justify-between gap-3">
-              <h2 id="tracks-heading" className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Şarkılar
-              </h2>
-              {tracks.length ? <CopyButton text={tracklistText} label="Listeyi kopyala" /> : null}
-            </div>
-            {tracks.length ? (
-              <p className="mt-3 text-[15px] leading-8 text-foreground/85">{tracklistText}</p>
-            ) : (
-              <p className="mt-3 text-sm text-muted-foreground">Şarkı listesi şu an yüklenemedi; sağdaki panelden Spotify&apos;da açabilirsin.</p>
-            )}
-          </section>
-
-          <Separator className="my-8 bg-white/8" />
-
-          <section aria-labelledby="story-heading" className="max-w-prose">
+          <section aria-labelledby="story-heading" className="mt-10 max-w-prose">
             <h2 id="story-heading" className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Albümün hikâyesi
             </h2>

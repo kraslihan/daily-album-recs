@@ -4,7 +4,6 @@ import { Suspense } from "react";
 
 import { AlbumContent } from "@/components/album-content";
 import { AlbumSkeleton } from "@/components/album-skeleton";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { catalogSize, dayKeyToNumber, getAlbumForDay, getLaneForDay, getNextMidnight, getTodayKey, isValidDayKey, shiftDayKey } from "@/lib/daily";
 
@@ -54,7 +53,6 @@ export default async function ArchiveDayPage({ params }: Props) {
           <AlbumContent album={album} lane={getLaneForDay(date)} isToday={false} nextMidnightIso={nextMidnightIso} />
         </Suspense>
       </main>
-      <SiteFooter />
     </>
   );
 }

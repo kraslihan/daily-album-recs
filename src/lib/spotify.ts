@@ -3,11 +3,9 @@ import "server-only";
 /**
  * Spotify integration works in two tiers:
  *
- * 1. Without credentials (default) every album and track links to a Spotify search deep
- *    link. open.spotify.com URLs hand off to the native app when it is installed.
- * 2. With SPOTIFY_CLIENT_ID + SPOTIFY_CLIENT_SECRET set, the album is resolved through the
- *    Web API (client-credentials flow) so links point at the exact album/track and the
- *    embedded player becomes available.
+ * 1. Without credentials every album and track links to a Spotify search deep link.
+ * 2. With SPOTIFY_CLIENT_ID + SPOTIFY_CLIENT_SECRET the album is resolved through the
+ *    Web API so we get cover art, the exact tracklist, and embeddable album/track URLs.
  */
 
 export function spotifySearchUrl(query: string): string {
@@ -26,9 +24,24 @@ export function isSpotifyApiConfigured(): boolean {
   return Boolean(process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET);
 }
 
+export type SpotifyTrack = {
+  id: string;
+  name: string;
+  durationMs: number;
+  explicit: boolean;
+  trackNumber: number;
+  discNumber: number;
+  previewUrl: string | null;
+};
+
 export type SpotifyResolvedAlbum = {
   id: string;
-  tracks: Array<{ id: string; name: string; trackNumber: number; discNumber: number }>;
+  name: string;
+  releaseDate: string | null;
+  label: string | null;
+  coverUrl: string | null;
+  coverSmallUrl: string | null;
+  tracks: SpotifyTrack[];
 };
 
 type TokenResponse = { access_token: string; expires_in: number };
@@ -57,7 +70,7 @@ async function getAccessToken(): Promise<string | null> {
   return data.access_token;
 }
 
-function normalise(s: string): string {
+export function normalise(s: string): string {
   return s
     .toLowerCase()
     .normalize("NFKD")
@@ -67,23 +80,75 @@ function normalise(s: string): string {
     .trim();
 }
 
-type SearchResponse = {
-  albums?: {
+type SearchAlbum = {
+  id: string;
+  name: string;
+  album_type: string;
+  total_tracks: number;
+  release_date: string;
+  artists: Array<{ name: string }>;
+  images?: Array<{ url: string; width: number; height: number }>;
+};
+
+type SearchResponse = { albums?: { items: SearchAlbum[] } };
+
+type AlbumResponse = {
+  id: string;
+  name: string;
+  release_date?: string;
+  label?: string;
+  images?: Array<{ url: string; width: number }>;
+  tracks?: {
     items: Array<{
       id: string;
       name: string;
-      album_type: string;
-      total_tracks: number;
-      release_date: string;
-      artists: Array<{ name: string }>;
+      duration_ms: number;
+      explicit: boolean;
+      track_number: number;
+      disc_number: number;
+      preview_url: string | null;
     }>;
+    next: string | null;
   };
 };
 
-type TracksResponse = {
-  items: Array<{ id: string; name: string; track_number: number; disc_number: number }>;
+type TracksPage = {
+  items: Array<{
+    id: string;
+    name: string;
+    duration_ms: number;
+    explicit: boolean;
+    track_number: number;
+    disc_number: number;
+    preview_url: string | null;
+  }>;
   next: string | null;
 };
+
+function pickCover(images: Array<{ url: string; width?: number }> | undefined): { large: string | null; small: string | null } {
+  if (!images?.length) return { large: null, small: null };
+  const sorted = [...images].sort((a, b) => (b.width ?? 0) - (a.width ?? 0));
+  return { large: sorted[0]?.url ?? null, small: sorted[sorted.length - 1]?.url ?? sorted[0]?.url ?? null };
+}
+
+function scoreAlbum(a: SearchAlbum, wantArtist: string, wantTitle: string, year: number): number | null {
+  if (!a.artists.some((x) => {
+    const n = normalise(x.name);
+    return n === wantArtist || n.includes(wantArtist) || wantArtist.includes(n);
+  })) {
+    return null;
+  }
+  const name = normalise(a.name);
+  let score = 0;
+  if (name === wantTitle) score += 100;
+  else if (name.startsWith(wantTitle) || wantTitle.startsWith(name)) score += 60;
+  else if (name.includes(wantTitle) || wantTitle.includes(name)) score += 30;
+  else return null;
+  if (a.album_type === "album") score += 20;
+  if (a.release_date?.startsWith(String(year))) score += 30;
+  if (/deluxe|anniversary|expanded|remaster|live|edition/i.test(a.name)) score -= 25;
+  return score;
+}
 
 export async function resolveSpotifyAlbum(
   artist: string,
@@ -94,63 +159,85 @@ export async function resolveSpotifyAlbum(
   if (!token) return null;
 
   const headers = { authorization: `Bearer ${token}` };
-  const q = `album:${title} artist:${artist}`;
-  const searchRes = await fetch(
-    `https://api.spotify.com/v1/search?type=album&limit=10&q=${encodeURIComponent(q)}`,
-    { headers, next: { revalidate: 60 * 60 * 24 * 30 } },
-  );
-  if (!searchRes.ok) return null;
-  const search = (await searchRes.json()) as SearchResponse;
+  const queries = [
+    `album:${title} artist:${artist}`,
+    `${artist} ${title}`,
+    `${title} ${artist}`,
+  ];
 
   const wantArtist = normalise(artist);
   const wantTitle = normalise(title);
-  const scored = (search.albums?.items ?? [])
-    .filter((a) => a.artists.some((x) => normalise(x.name) === wantArtist))
-    .map((a) => {
-      const name = normalise(a.name);
-      let score = 0;
-      if (name === wantTitle) score += 100;
-      else if (name.startsWith(wantTitle)) score += 60;
-      if (a.album_type === "album") score += 20;
-      if (a.release_date?.startsWith(String(year))) score += 30;
-      if (/deluxe|anniversary|expanded|remaster|live|edition/i.test(a.name)) score -= 25;
-      return { album: a, score };
-    })
-    .sort((a, b) => b.score - a.score);
+  let best: SearchAlbum | null = null;
+  let bestScore = -1;
 
-  const best = scored[0]?.album;
-  if (!best) return null;
-
-  const tracks: SpotifyResolvedAlbum["tracks"] = [];
-  let url: string | null = `https://api.spotify.com/v1/albums/${best.id}/tracks?limit=50`;
-  while (url) {
-    const res: Response = await fetch(url, { headers, next: { revalidate: 60 * 60 * 24 * 30 } });
-    if (!res.ok) break;
-    const data = (await res.json()) as TracksResponse;
-    for (const t of data.items) {
-      tracks.push({ id: t.id, name: t.name, trackNumber: t.track_number, discNumber: t.disc_number });
+  for (const q of queries) {
+    const searchRes = await fetch(
+      `https://api.spotify.com/v1/search?type=album&limit=10&q=${encodeURIComponent(q)}`,
+      { headers, next: { revalidate: 60 * 60 * 24 * 7 } },
+    );
+    if (!searchRes.ok) continue;
+    const search = (await searchRes.json()) as SearchResponse;
+    for (const a of search.albums?.items ?? []) {
+      const score = scoreAlbum(a, wantArtist, wantTitle, year);
+      if (score !== null && score > bestScore) {
+        best = a;
+        bestScore = score;
+      }
     }
-    url = data.next;
+    if (bestScore >= 100) break;
   }
 
-  return { id: best.id, tracks };
-}
+  if (!best) return null;
 
-/** Match a Spotify track to a Deezer track by title, then by position as a fallback. */
-export function matchSpotifyTrack(
-  resolved: SpotifyResolvedAlbum,
-  title: string,
-  position: number,
-  totalTracks: number,
-): string | null {
-  const want = normalise(title);
-  const byTitle = resolved.tracks.find((t) => normalise(t.name) === want);
-  if (byTitle) return byTitle.id;
-  const loose = resolved.tracks.find((t) => {
-    const n = normalise(t.name);
-    return n.startsWith(want) || want.startsWith(n);
+  const albumRes = await fetch(`https://api.spotify.com/v1/albums/${best.id}`, {
+    headers,
+    next: { revalidate: 60 * 60 * 24 * 7 },
   });
-  if (loose) return loose.id;
-  if (resolved.tracks.length === totalTracks) return resolved.tracks[position - 1]?.id ?? null;
-  return null;
+  if (!albumRes.ok) return null;
+  const album = (await albumRes.json()) as AlbumResponse;
+  const covers = pickCover(album.images);
+
+  const tracks: SpotifyTrack[] = [];
+  const page = album.tracks;
+  let nextUrl = page?.next ?? null;
+  for (const t of page?.items ?? []) {
+    tracks.push({
+      id: t.id,
+      name: t.name,
+      durationMs: t.duration_ms,
+      explicit: t.explicit,
+      trackNumber: t.track_number,
+      discNumber: t.disc_number,
+      previewUrl: t.preview_url,
+    });
+  }
+  while (nextUrl) {
+    const res: Response = await fetch(nextUrl, { headers, next: { revalidate: 60 * 60 * 24 * 7 } });
+    if (!res.ok) break;
+    const data = (await res.json()) as TracksPage;
+    for (const t of data.items) {
+      tracks.push({
+        id: t.id,
+        name: t.name,
+        durationMs: t.duration_ms,
+        explicit: t.explicit,
+        trackNumber: t.track_number,
+        discNumber: t.disc_number,
+        previewUrl: t.preview_url,
+      });
+    }
+    nextUrl = data.next;
+  }
+
+  tracks.sort((a, b) => a.discNumber - b.discNumber || a.trackNumber - b.trackNumber);
+
+  return {
+    id: album.id,
+    name: album.name,
+    releaseDate: album.release_date ?? null,
+    label: album.label ?? null,
+    coverUrl: covers.large,
+    coverSmallUrl: covers.small,
+    tracks,
+  };
 }

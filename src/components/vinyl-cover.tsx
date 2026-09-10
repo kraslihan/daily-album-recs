@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Disc3 } from "lucide-react";
 
 type Props = {
@@ -22,20 +21,20 @@ export function VinylCover({ coverUrl, labelUrl, alt, href }: Props) {
         <div className="vinyl-disc-inner">
           <div className="vinyl-label bg-neutral-800">
             {labelUrl ? (
-              <Image src={labelUrl} alt="" fill sizes="120px" className="object-cover" />
+              // Native img: Vercel image optimizer cannot reach every CDN.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={labelUrl} alt="" className="absolute inset-0 size-full object-cover" />
             ) : null}
           </div>
         </div>
       </div>
       <div className="vinyl-sleeve">
         {coverUrl ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={coverUrl}
             alt={alt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 420px, 75vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+            className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-neutral-800 to-neutral-900 text-muted-foreground">

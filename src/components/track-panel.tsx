@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ExternalLink, Pause, Play, Volume2 } from "lucide-react";
 
@@ -109,7 +108,8 @@ export function TrackPanel({ data }: Props) {
         <header className="flex items-start gap-4 border-b border-white/8 p-4 sm:p-5">
           <div className="relative size-16 shrink-0 overflow-hidden rounded-md bg-neutral-800 shadow-lg sm:size-20">
             {coverSmallUrl ? (
-              <Image src={coverSmallUrl} alt="" fill sizes="80px" className="object-cover" />
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={coverSmallUrl} alt="" className="absolute inset-0 size-full object-cover" />
             ) : null}
           </div>
           <div className="min-w-0 flex-1">

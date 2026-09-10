@@ -3,7 +3,6 @@ import { Suspense } from "react";
 
 import { AlbumContent } from "@/components/album-content";
 import { AlbumSkeleton } from "@/components/album-skeleton";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getAlbumForDay, getLaneForDay, getNextMidnight, getTodayKey, shiftDayKey } from "@/lib/daily";
 
@@ -32,7 +31,6 @@ export default function TodayPage() {
           <AlbumContent album={album} lane={getLaneForDay(dayKey)} isToday nextMidnightIso={nextMidnightIso} />
         </Suspense>
       </main>
-      <SiteFooter />
     </>
   );
 }

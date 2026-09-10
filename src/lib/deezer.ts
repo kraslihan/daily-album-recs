@@ -49,7 +49,7 @@ type DeezerAlbumResponse = {
 export async function fetchDeezerAlbum(deezerId: number): Promise<DeezerAlbum | null> {
   try {
     const res = await fetch(`https://api.deezer.com/album/${deezerId}`, {
-      cache: "force-cache",
+      next: { revalidate: 60 * 60 * 6 },
       headers: { accept: "application/json" },
     });
     if (!res.ok) return null;
