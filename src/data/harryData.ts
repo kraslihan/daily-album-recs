@@ -32,8 +32,7 @@ type PhotoSeed = {
 /**
  * Files live in /public/harry/ as `{year}-{nn}.jpg`.
  * Eras are derived from YEAR_TO_ERA — not hard-coded in the UI.
- * Photos are added era-by-era.
- * Current: Harry Styles + Fine Line + Harry's House.
+ * Photos are added era-by-era. All four eras are populated.
  */
 const PHOTO_SEEDS: PhotoSeed[] = [
   // Harry Styles — 2017
@@ -202,6 +201,68 @@ const PHOTO_SEEDS: PhotoSeed[] = [
     year: "2023",
     label: "Brown Cardigan Street",
     tags: ["street-style", "cardigan", "sunglasses", "casual"],
+  },
+
+  // Kiss All the Time. Disco, Occasionally. — 2026
+  {
+    id: "2026-01",
+    year: "2026",
+    label: "Desert Run Profile",
+    tags: ["athletic", "shirtless", "desert", "sunglasses"],
+  },
+  {
+    id: "2026-02",
+    year: "2026",
+    label: "High-Waisted Pinstripe",
+    tags: ["pinstripes", "live", "high-waisted", "performance"],
+  },
+  {
+    id: "2026-03",
+    year: "2026",
+    label: "Grey Glitter Crop Jacket",
+    tags: ["glitter", "jeans", "shirtless", "award-show"],
+  },
+  {
+    id: "2026-04",
+    year: "2026",
+    label: "Yellow Stripe Wembley",
+    tags: ["live", "stripes", "stadium", "mustache"],
+  },
+  {
+    id: "2026-05",
+    year: "2026",
+    label: "Yellow Stripe Knit",
+    tags: ["live", "stripes", "knit", "tour"],
+  },
+  {
+    id: "2026-06",
+    year: "2026",
+    label: "Yellow Stripe Pink Pants",
+    tags: ["live", "stripes", "pink", "stadium"],
+  },
+  {
+    id: "2026-07",
+    year: "2026",
+    label: "Pinstripe & Yellow Shades",
+    tags: ["sunglasses", "blazer", "live", "daytime"],
+  },
+  {
+    id: "2026-08",
+    year: "2026",
+    label: "Desert Run Stride",
+    tags: ["athletic", "shirtless", "desert", "running"],
+  },
+  {
+    id: "2026-09",
+    year: "2026",
+    label: "Desert Duck Hat",
+    tags: ["shirtless", "outdoors", "hat", "editorial"],
+  },
+  {
+    id: "2026-10",
+    year: "2026",
+    label: "Runner's World Laces",
+    tags: ["athletic", "shirtless", "outdoors", "shoes"],
   },
 ];
 
