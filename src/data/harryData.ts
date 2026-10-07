@@ -33,7 +33,7 @@ type PhotoSeed = {
  * Files live in /public/harry/ as `{year}-{nn}.jpg`.
  * Eras are derived from YEAR_TO_ERA — not hard-coded in the UI.
  * Photos are added era-by-era.
- * Current: Harry Styles (2017) + Fine Line (2019–2021).
+ * Current: Harry Styles + Fine Line + Harry's House.
  */
 const PHOTO_SEEDS: PhotoSeed[] = [
   // Harry Styles — 2017
@@ -144,6 +144,64 @@ const PHOTO_SEEDS: PhotoSeed[] = [
     year: "2021",
     label: "Grammys Feather Boa",
     tags: ["grammys", "boa", "leather", "live"],
+  },
+
+  // Harry's House — 2022
+  {
+    id: "2022-01",
+    year: "2022",
+    label: "Pink Feather Coat",
+    tags: ["coachella", "feathers", "pink", "stage"],
+  },
+  {
+    id: "2022-02",
+    year: "2022",
+    label: "Rainbow Sequin Live",
+    tags: ["sequins", "rainbow", "coachella", "live"],
+  },
+  {
+    id: "2022-03",
+    year: "2022",
+    label: "Black Leather Live",
+    tags: ["leather", "live", "rings", "stage"],
+  },
+  {
+    id: "2022-04",
+    year: "2022",
+    label: "Blue Chevron Guitar",
+    tags: ["chevron", "guitar", "tour", "live"],
+  },
+  {
+    id: "2022-05",
+    year: "2022",
+    label: "Disco Sequin Vest",
+    tags: ["sequins", "disco", "live", "tour"],
+  },
+  {
+    id: "2022-06",
+    year: "2022",
+    label: "Mirror Sequin Overalls",
+    tags: ["sequins", "coachella", "shirtless", "live"],
+  },
+  {
+    id: "2022-07",
+    year: "2022",
+    label: "Navy Jacket & Florals",
+    tags: ["editorial", "navy", "flowers", "studio"],
+  },
+
+  // Harry's House — 2023
+  {
+    id: "2023-01",
+    year: "2023",
+    label: "Grammys Cream Blazer",
+    tags: ["grammys", "sequins", "award", "suit"],
+  },
+  {
+    id: "2023-02",
+    year: "2023",
+    label: "Brown Cardigan Street",
+    tags: ["street-style", "cardigan", "sunglasses", "casual"],
   },
 ];
 
