@@ -20,7 +20,7 @@ export const YEAR_TO_ERA: Record<string, string> = {
 };
 
 export const eraForYear = (year: string): string =>
-  YEAR_TO_ERA[year] ?? "Harry's House";
+  YEAR_TO_ERA[year] ?? "Harry Styles";
 
 type PhotoSeed = {
   id: string;
@@ -32,128 +32,56 @@ type PhotoSeed = {
 /**
  * Files live in /public/harry/ as `{year}-{nn}.jpg`.
  * Eras are derived from YEAR_TO_ERA — not hard-coded in the UI.
+ * Photos are added era-by-era; currently only Harry Styles (2017).
  */
 const PHOTO_SEEDS: PhotoSeed[] = [
-  // 2017 — Harry Styles
   {
     id: "2017-01",
     year: "2017",
     label: "SNL Tropical Shirt",
-    tags: ["live", "tropical", "quiff", "debut"],
+    tags: ["snl", "tropical", "smile", "debut"],
   },
   {
     id: "2017-02",
+    year: "2017",
+    label: "Sunday Times Pinstripe",
+    tags: ["editorial", "pinstripe", "seated", "magazine"],
+  },
+  {
+    id: "2017-03",
+    year: "2017",
+    label: "Mint Suit Live",
+    tags: ["live", "suit", "stage", "boots"],
+  },
+  {
+    id: "2017-04",
     year: "2017",
     label: "Harlequin Gucci Suit",
     tags: ["gucci", "stage", "bow", "suit"],
   },
   {
-    id: "2017-03",
+    id: "2017-05",
+    year: "2017",
+    label: "Lace Collar Portrait",
+    tags: ["portrait", "lace", "soft", "promo"],
+  },
+  {
+    id: "2017-06",
+    year: "2017",
+    label: "Burgundy Camp Collar",
+    tags: ["casual", "smile", "shirt", "press"],
+  },
+  {
+    id: "2017-07",
+    year: "2017",
+    label: "Sunday Times Open Blazer",
+    tags: ["editorial", "pinstripe", "tattoos", "magazine"],
+  },
+  {
+    id: "2017-08",
     year: "2017",
     label: "Red Floral Guitar",
     tags: ["floral", "guitar", "suit", "live"],
-  },
-
-  // 2019–2021 — Fine Line
-  {
-    id: "2019-01",
-    year: "2019",
-    label: "Met Gala Sheer Black",
-    tags: ["met-gala", "pearls", "sheer", "editorial"],
-  },
-  {
-    id: "2019-02",
-    year: "2019",
-    label: "Fine Line Promo Pastel",
-    tags: ["pastel", "editorial", "wavy-hair", "promo"],
-  },
-  {
-    id: "2021-01",
-    year: "2021",
-    label: "Blue Chevron Suit",
-    tags: ["tour", "chevron", "guitar", "sequins"],
-  },
-
-  // 2022–2024 — Harry's House
-  {
-    id: "2022-01",
-    year: "2022",
-    label: "Cream Sleeveless Vest",
-    tags: ["live", "vest", "high-waisted", "tour"],
-  },
-  {
-    id: "2022-02",
-    year: "2022",
-    label: "Pink Feather Coat",
-    tags: ["coachella", "feathers", "pink", "stage"],
-  },
-  {
-    id: "2022-03",
-    year: "2022",
-    label: "Disco Sequin Vest",
-    tags: ["sequins", "disco", "live", "tour"],
-  },
-  {
-    id: "2022-04",
-    year: "2022",
-    label: "Mirror Sequin Overalls",
-    tags: ["sequins", "coachella", "shirtless", "live"],
-  },
-  {
-    id: "2022-05",
-    year: "2022",
-    label: "Desert Duck Hat",
-    tags: ["shirtless", "outdoors", "hat", "editorial"],
-  },
-  {
-    id: "2023-01",
-    year: "2023",
-    label: "Grammys Cream Blazer",
-    tags: ["grammys", "sequins", "award", "suit"],
-  },
-  {
-    id: "2023-02",
-    year: "2023",
-    label: "Grammys Pinstripe",
-    tags: ["grammys", "high-waisted", "pinstripes", "live"],
-  },
-  {
-    id: "2023-03",
-    year: "2023",
-    label: "Grey Glitter Crop Jacket",
-    tags: ["grammys", "glitter", "jeans", "shirtless"],
-  },
-  {
-    id: "2023-04",
-    year: "2023",
-    label: "Yellow Stripe Knit",
-    tags: ["live", "stripes", "knit", "tour"],
-  },
-  {
-    id: "2023-05",
-    year: "2023",
-    label: "Slane Yellow Stripe",
-    tags: ["live", "stripes", "tour", "stadium"],
-  },
-  {
-    id: "2024-01",
-    year: "2024",
-    label: "Navy Jacket & Florals",
-    tags: ["editorial", "navy", "flowers", "studio"],
-  },
-  {
-    id: "2024-02",
-    year: "2024",
-    label: "Runner's World",
-    tags: ["athletic", "shirtless", "outdoors", "short-hair"],
-  },
-
-  // 2026 — Kiss All the Time. Disco, Occasionally.
-  {
-    id: "2026-01",
-    year: "2026",
-    label: "Desert Run",
-    tags: ["athletic", "shirtless", "desert", "sunglasses"],
   },
 ];
 
