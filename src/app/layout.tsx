@@ -1,15 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { DM_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin", "latin-ext"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -21,26 +16,31 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Günün Albümü",
-    template: "%s · Günün Albümü",
+    default: "Which Harry is your Harry?",
+    template: "%s · Your Harry",
   },
   description:
-    "Her gece 00:00'da yenilenen, zevkine göre seçilmiş bir albüm: hikâyesi, grup üyeleri, ilginç bilgiler ve Spotify bağlantıları.",
-  applicationName: "Günün Albümü",
+    "A quick this-or-that battle to find your favorite Harry Styles era — and the exact look that wins.",
+  applicationName: "Your Harry",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0b0f",
-  colorScheme: "dark",
+  themeColor: "#f7f1e7",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="tr"
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      lang="en"
+      className={`${dmSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#f7f1e7] text-[#1f1712]">
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,22 +1,26 @@
 "use client";
 
-import { Disc3 } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-
-export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function ErrorPage({
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-24 text-center">
-      <span className="flex size-12 items-center justify-center rounded-full bg-white/6 text-muted-foreground">
-        <Disc3 className="size-6" />
-      </span>
-      <h1 className="font-display text-3xl">Plak takıldı</h1>
-      <p className="max-w-sm text-sm text-muted-foreground">
-        Günün albümü yüklenirken bir sorun oluştu. Tekrar denediğinde aynı albümü görürsün; seçim tarihe bağlıdır.
+      <h1 className="font-[family-name:var(--font-display)] text-3xl text-[#1f1712]">
+        Something skipped a beat
+      </h1>
+      <p className="max-w-sm font-sans text-sm text-[#6e5f52]">
+        The battle hit a snag. Try again — your Harry is still out there.
       </p>
-      <Button onClick={reset} className="rounded-full">
-        Tekrar dene
-      </Button>
+      <button
+        type="button"
+        onClick={reset}
+        className="min-h-11 rounded-sm bg-[#1f1712] px-5 py-2.5 font-sans text-sm uppercase tracking-[0.14em] text-[#f7f1e7]"
+      >
+        Try again
+      </button>
     </main>
   );
 }
