@@ -124,17 +124,23 @@ export function HarryGame() {
   };
 
   const finishWithWinner = (base: GameState, winnerId: string | null) => {
-    const topThree = getTopPhotos(base.photoScores, 3);
+    const ranked = getTopPhotos(base.photoScores, 5);
     const resolvedWinner =
       winnerId ??
-      topThree[0]?.id ??
+      ranked[0]?.id ??
       null;
+    const topThreeIds = resolvedWinner
+      ? [
+          resolvedWinner,
+          ...ranked.map((p) => p.id).filter((id) => id !== resolvedWinner),
+        ].slice(0, 3)
+      : ranked.slice(0, 3).map((p) => p.id);
     clearGame();
     setState({
       ...base,
       phase: "result",
       winnerId: resolvedWinner,
-      topThreeIds: topThree.map((p) => p.id),
+      topThreeIds,
       currentPair: null,
     });
   };

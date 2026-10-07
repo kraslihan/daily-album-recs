@@ -67,12 +67,14 @@ const pickWeightedPhoto = (
   preferHigh: boolean,
 ): HarryPhoto | null => {
   if (pool.length === 0) return null;
-  const scored = pool.map((photo) => ({
-    photo,
-    weight: preferHigh
+  const scored = pool.map((photo) => {
+    const scoreWeight = preferHigh
       ? Math.max(0.35, (photoScores[photo.id] ?? 0) + 1)
-      : Math.max(0.35, 2.5 - (photoScores[photo.id] ?? 0)),
-  }));
+      : Math.max(0.35, 2.5 - (photoScores[photo.id] ?? 0));
+    // Prefer real demo photos over SVG placeholders when both exist.
+    const mediaBoost = photo.image.endsWith(".svg") ? 0.25 : 1.35;
+    return { photo, weight: scoreWeight * mediaBoost };
+  });
   const total = scored.reduce((sum, item) => sum + item.weight, 0);
   let roll = Math.random() * total;
   for (const item of scored) {

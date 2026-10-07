@@ -85,7 +85,7 @@ export function BattleScreen({
       )}
 
       <div className="mx-auto mt-4 flex w-full max-w-lg flex-1 flex-col justify-center gap-3">
-        <div className="grid grid-cols-2 items-stretch gap-2.5 sm:gap-4">
+        <div className="relative grid grid-cols-2 items-stretch gap-2.5 sm:gap-4">
           <PhotoCard
             photo={a}
             side="a"
@@ -114,10 +114,10 @@ export function BattleScreen({
             onSelect={() => commit("b")}
             disabled={Boolean(selected)}
           />
-        </div>
-
-        <div className="relative flex items-center justify-center py-1">
-          <span className="font-[family-name:var(--font-display)] text-lg italic tracking-wide text-[#c23b3b]">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f7f1e7]/92 px-2.5 py-1 font-[family-name:var(--font-display)] text-base italic tracking-wide text-[#c23b3b] shadow-sm ring-1 ring-[#2a2118]/8 sm:text-lg"
+          >
             VS
           </span>
         </div>

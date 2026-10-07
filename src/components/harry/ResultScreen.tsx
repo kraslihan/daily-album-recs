@@ -24,12 +24,13 @@ export function ResultScreen({
   eraPercent,
   onPlayAgain,
 }: ResultScreenProps) {
-  const yearRange = ERA_YEAR_RANGES[era] ?? winner.year;
+  const winnerEra = winner.era;
+  const yearRange = ERA_YEAR_RANGES[winnerEra] ?? winner.year;
   const blurb =
-    ERA_BLURBS[era] ??
+    ERA_BLURBS[winnerEra] ??
     `You found your Harry.\n${winner.label}.\n\nThis is your Harry.`;
 
-  const shareText = `My Harry is ${winner.label} (${era}). What's yours?`;
+  const shareText = `My Harry is ${winner.label} (${winnerEra}). What's yours?`;
 
   return (
     <section className="relative min-h-[100dvh] px-4 pb-12 pt-8 sm:px-6">
@@ -75,7 +76,7 @@ export function ResultScreen({
             {winner.label}
           </h2>
           <p className="mt-1 font-sans text-sm tracking-wide text-[#8a7a6c]">
-            {era}
+            {winnerEra}
             <span className="mx-2 text-[#c9b8a8]">·</span>
             {yearRange}
           </p>
