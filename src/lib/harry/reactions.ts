@@ -3,6 +3,8 @@ const REACTIONS = [
   "Okay… I see the vision.",
   "That jacket won again.",
   "Fine Line is fighting for its life.",
+  "Harry's House just entered the chat.",
+  "Disco mode: suspiciously activated.",
   "Your type is becoming suspiciously obvious.",
   "Bold. Chaotic. Noted.",
   "The haircut discourse continues.",

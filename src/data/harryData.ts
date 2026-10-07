@@ -9,41 +9,19 @@ export type HarryPhoto = {
 
 /**
  * Demo catalog for the Favorite Harry Styles Era battle.
- * Swap files under /public/harry/ using the same filenames
- * (or update `image` paths) when you add your own photos.
+ * Eras are derived from this data (not hard-coded in the UI).
+ *
+ * 2017 → Harry Styles
+ * 2019 → Fine Line
+ * 2022 → Harry's House
+ * 2026 → Kiss All the Time. Disco, Occasionally.
  */
 export const harryPhotos: HarryPhoto[] = [
-  // One Direction — replace SVG placeholders with your JPGs
-  {
-    id: "one-direction-01",
-    image: "/harry/one-direction-01.svg",
-    era: "One Direction",
-    year: "2013",
-    label: "Boyband Harry",
-    tags: ["curly-hair", "boyband", "stage", "young"],
-  },
-  {
-    id: "one-direction-02",
-    image: "/harry/one-direction-02.svg",
-    era: "One Direction",
-    year: "2014",
-    label: "Tour Harry",
-    tags: ["curly-hair", "live", "mic", "young"],
-  },
-  {
-    id: "one-direction-03",
-    image: "/harry/one-direction-03.svg",
-    era: "One Direction",
-    year: "2015",
-    label: "Red Carpet Harry",
-    tags: ["suit", "curly-hair", "smiling", "formal"],
-  },
-
-  // HS1
+  // 2017 — Harry Styles
   {
     id: "hs1-debut-01",
     image: "/harry/hs1-debut-01.svg",
-    era: "HS1",
+    era: "Harry Styles",
     year: "2017",
     label: "Debut Solo Harry",
     tags: ["solo", "quiff", "rock", "jacket"],
@@ -51,13 +29,13 @@ export const harryPhotos: HarryPhoto[] = [
   {
     id: "hs1-aria-paisley-01",
     image: "/harry/hs1-aria-paisley-01.jpg",
-    era: "HS1",
+    era: "Harry Styles",
     year: "2017",
     label: "ARIA Paisley Suit",
     tags: ["paisley", "metallic", "purple-suit", "red-carpet", "quiff"],
   },
 
-  // Fine Line
+  // 2019 — Fine Line
   {
     id: "fine-line-pearls-01",
     image: "/harry/fine-line-pearls-01.jpg",
@@ -83,7 +61,7 @@ export const harryPhotos: HarryPhoto[] = [
     tags: ["longer-hair", "colorful", "tour", "jumpsuit"],
   },
 
-  // Harry's House
+  // 2022 — Harry's House
   {
     id: "harrys-house-kitchen-01",
     image: "/harry/harrys-house-kitchen-01.jpg",
@@ -156,12 +134,10 @@ export const harryPhotos: HarryPhoto[] = [
     label: "High-Waisted Pinstripe",
     tags: ["short-hair", "high-waisted", "performance", "editorial"],
   },
-
-  // Love On Tour
   {
     id: "love-on-tour-rainbow-01",
     image: "/harry/love-on-tour-rainbow-01.jpg",
-    era: "Love On Tour",
+    era: "Harry's House",
     year: "2022",
     label: "Rainbow Sequin Jumpsuit",
     tags: ["rainbow", "sequins", "jumpsuit", "live", "flamboyant"],
@@ -169,7 +145,7 @@ export const harryPhotos: HarryPhoto[] = [
   {
     id: "love-on-tour-pink-damask-01",
     image: "/harry/love-on-tour-pink-damask-01.jpg",
-    era: "Love On Tour",
+    era: "Harry's House",
     year: "2022",
     label: "Pink Damask Suit",
     tags: ["short-hair", "colorful", "floral-print", "tour", "maximalist"],
@@ -177,66 +153,66 @@ export const harryPhotos: HarryPhoto[] = [
   {
     id: "love-on-tour-heart-overalls-01",
     image: "/harry/love-on-tour-heart-overalls-01.jpg",
-    era: "Love On Tour",
+    era: "Harry's House",
     year: "2022",
     label: "Heart Overalls",
     tags: ["shirtless", "overalls", "hearts", "tattoos", "pink", "live"],
   },
 
-  // Current Harry
+  // 2026 — Kiss All the Time. Disco, Occasionally.
   {
     id: "current-harry-runners-world-01",
     image: "/harry/current-harry-runners-world-01.jpg",
-    era: "Current Harry",
-    year: "2023",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Runner's World",
     tags: ["short-hair", "shirtless", "tattoos", "athletic", "golden-hour"],
   },
   {
     id: "current-harry-running-01",
     image: "/harry/current-harry-running-01.jpg",
-    era: "Current Harry",
-    year: "2024",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Desert Run",
     tags: ["shirtless", "tattoos", "athletic", "sunglasses", "outdoor"],
   },
   {
     id: "current-harry-cowboy-01",
     image: "/harry/current-harry-cowboy-01.jpg",
-    era: "Current Harry",
-    year: "2024",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Cowboy Harry",
     tags: ["cowboy-hat", "mustache", "black-and-white", "editorial", "western"],
   },
   {
     id: "current-harry-hoodie-01",
     image: "/harry/current-harry-hoodie-01.jpg",
-    era: "Current Harry",
-    year: "2024",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Short Hair & Stubble",
     tags: ["short-hair", "stubble", "casual", "candid", "hoodie"],
   },
   {
     id: "current-harry-blue-jacket-01",
     image: "/harry/current-harry-blue-jacket-01.jpg",
-    era: "Current Harry",
-    year: "2024",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Blue Jacket & Matcha",
     tags: ["short-hair", "mustache", "casual", "street-style", "blue-jacket"],
   },
   {
     id: "current-harry-street-01",
     image: "/harry/current-harry-street-01.jpg",
-    era: "Current Harry",
-    year: "2023",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Street Style Cap",
     tags: ["oversized-shirt", "wide-leg", "casual", "street-style", "sunglasses"],
   },
   {
     id: "current-harry-jogging-01",
     image: "/harry/current-harry-jogging-01.jpg",
-    era: "Current Harry",
-    year: "2024",
+    era: "Kiss All the Time. Disco, Occasionally.",
+    year: "2026",
     label: "Jogging in the City",
     tags: ["casual", "streetwear", "running", "tattoos", "athleisure"],
   },
@@ -258,24 +234,19 @@ export const getPhotoById = (id: string): HarryPhoto | undefined =>
   harryPhotos.find((photo) => photo.id === id);
 
 export const ERA_YEAR_RANGES: Record<string, string> = {
-  "One Direction": "2010–2015",
-  HS1: "2017–2018",
+  "Harry Styles": "2017–2018",
   "Fine Line": "2019–2021",
   "Harry's House": "2022–2023",
-  "Love On Tour": "2021–2023",
-  "Current Harry": "2023–now",
+  "Kiss All the Time. Disco, Occasionally.": "2026",
 };
 
 export const ERA_BLURBS: Record<string, string> = {
-  "One Direction":
-    "You went back to the beginning.\nThe curls, the chaos, the origin story.\n\nThis is your Harry.",
-  HS1: "You survived the debut,\nthe excellent jackets\nand the rockstar glow-up.\n\nThis is your Harry.",
+  "Harry Styles":
+    "You survived the debut,\nthe excellent jackets\nand the rockstar glow-up.\n\nThis is your Harry.",
   "Fine Line":
     "You survived the pearls,\nthe colorful suits\nand the questionable facial hair.\n\nThis is your Harry.",
   "Harry's House":
     "You chose soft domestic chaos,\nhigh waists and kitchen vibes.\n\nThis is your Harry.",
-  "Love On Tour":
-    "You embraced the shimmer\nand the stage presence.\nThis is your ultimate showman Harry.",
-  "Current Harry":
-    "Short hair. Strong opinions.\nStreet style and golden-hour runs.\n\nThis is your Harry.",
+  "Kiss All the Time. Disco, Occasionally.":
+    "Disco energy. Soft obsession.\nThe newest chapter wins.\n\nThis is your Harry.",
 };

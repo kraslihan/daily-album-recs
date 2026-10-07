@@ -2,24 +2,27 @@
 
 Drop your images into this folder using these exact names (or update paths in `src/data/harryData.ts`).
 
-## One Direction (placeholders — replace)
+## Eras (4)
 
-- `one-direction-01.jpg` (currently `.svg` placeholder)
-- `one-direction-02.jpg` (currently `.svg` placeholder)
-- `one-direction-03.jpg` (currently `.svg` placeholder)
+| Year | Era |
+|------|-----|
+| 2017 | Harry Styles |
+| 2019 | Fine Line |
+| 2022 | Harry's House |
+| 2026 | Kiss All the Time. Disco, Occasionally. |
 
-## HS1
+## Harry Styles (2017)
 
 - `hs1-debut-01.jpg` (currently `.svg` placeholder)
 - `hs1-aria-paisley-01.jpg`
 
-## Fine Line
+## Fine Line (2019)
 
 - `fine-line-pearls-01.jpg`
 - `fine-line-pastel-01.jpg`
 - `fine-line-tour-01.jpg` (currently `.svg` placeholder)
 
-## Harry's House
+## Harry's House (2022)
 
 - `harrys-house-kitchen-01.jpg`
 - `harrys-house-yellow-sweater-01.jpg`
@@ -30,14 +33,11 @@ Drop your images into this folder using these exact names (or update paths in `s
 - `harrys-house-grammys-01.jpg`
 - `harrys-house-grammys-pinstripe-01.jpg`
 - `harrys-house-pinstripe-01.jpg`
-
-## Love On Tour
-
 - `love-on-tour-rainbow-01.jpg`
 - `love-on-tour-pink-damask-01.jpg`
 - `love-on-tour-heart-overalls-01.jpg`
 
-## Current Harry
+## Kiss All the Time. Disco, Occasionally. (2026)
 
 - `current-harry-runners-world-01.jpg`
 - `current-harry-running-01.jpg`

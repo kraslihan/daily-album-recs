@@ -78,7 +78,7 @@ export function PhotoCard({
           <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/80">
             {photo.year}
           </p>
-          <p className="font-[family-name:var(--font-display)] text-sm leading-tight text-white sm:text-base">
+          <p className="font-[family-name:var(--font-display)] text-sm leading-tight text-white sm:text-base line-clamp-2">
             {photo.era}
           </p>
         </div>

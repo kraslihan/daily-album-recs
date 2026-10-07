@@ -281,7 +281,7 @@ export const getFinalPair = (state: GameState): MatchPair | null => {
 };
 
 export const getWinningEra = (eraScores: Record<string, number>): string =>
-  rankedEras(eraScores)[0] ?? getEras()[0] ?? "Fine Line";
+  rankedEras(eraScores)[0] ?? getEras()[0] ?? "Harry's House";
 
 export const eraPickPercentage = (
   eraScores: Record<string, number>,
