@@ -7,216 +7,164 @@ export type HarryPhoto = {
   tags: string[];
 };
 
+/** Year → era mapping (source of truth for catalog eras). */
+export const YEAR_TO_ERA: Record<string, string> = {
+  "2017": "Harry Styles",
+  "2019": "Fine Line",
+  "2020": "Fine Line",
+  "2021": "Fine Line",
+  "2022": "Harry's House",
+  "2023": "Harry's House",
+  "2024": "Harry's House",
+  "2026": "Kiss All the Time. Disco, Occasionally.",
+};
+
+export const eraForYear = (year: string): string =>
+  YEAR_TO_ERA[year] ?? "Harry's House";
+
+type PhotoSeed = {
+  id: string;
+  year: string;
+  label: string;
+  tags: string[];
+};
+
 /**
- * Demo catalog for the Favorite Harry Styles Era battle.
- * Eras are derived from this data (not hard-coded in the UI).
- *
- * 2017 → Harry Styles
- * 2019 → Fine Line
- * 2022 → Harry's House
- * 2026 → Kiss All the Time. Disco, Occasionally.
+ * Files live in /public/harry/ as `{year}-{nn}.jpg`.
+ * Eras are derived from YEAR_TO_ERA — not hard-coded in the UI.
  */
-export const harryPhotos: HarryPhoto[] = [
+const PHOTO_SEEDS: PhotoSeed[] = [
   // 2017 — Harry Styles
   {
-    id: "hs1-debut-01",
-    image: "/harry/hs1-debut-01.svg",
-    era: "Harry Styles",
+    id: "2017-01",
     year: "2017",
-    label: "Debut Solo Harry",
-    tags: ["solo", "quiff", "rock", "jacket"],
+    label: "SNL Tropical Shirt",
+    tags: ["live", "tropical", "quiff", "debut"],
   },
   {
-    id: "hs1-aria-paisley-01",
-    image: "/harry/hs1-aria-paisley-01.jpg",
-    era: "Harry Styles",
+    id: "2017-02",
     year: "2017",
-    label: "ARIA Paisley Suit",
-    tags: ["paisley", "metallic", "purple-suit", "red-carpet", "quiff"],
+    label: "Harlequin Gucci Suit",
+    tags: ["gucci", "stage", "bow", "suit"],
+  },
+  {
+    id: "2017-03",
+    year: "2017",
+    label: "Red Floral Guitar",
+    tags: ["floral", "guitar", "suit", "live"],
   },
 
-  // 2019 — Fine Line
+  // 2019–2021 — Fine Line
   {
-    id: "fine-line-pearls-01",
-    image: "/harry/fine-line-pearls-01.jpg",
-    era: "Fine Line",
+    id: "2019-01",
     year: "2019",
-    label: "Pearls & Fuzzy Sweater",
-    tags: ["longer-hair", "pearls", "fuzzy-sweater", "colorful", "editorial"],
+    label: "Met Gala Sheer Black",
+    tags: ["met-gala", "pearls", "sheer", "editorial"],
   },
   {
-    id: "fine-line-pastel-01",
-    image: "/harry/fine-line-pastel-01.jpg",
-    era: "Fine Line",
+    id: "2019-02",
     year: "2019",
-    label: "Fine Line Promo",
-    tags: ["butter-yellow", "pastel", "wavy-hair", "editorial", "retro"],
+    label: "Fine Line Promo Pastel",
+    tags: ["pastel", "editorial", "wavy-hair", "promo"],
   },
   {
-    id: "fine-line-tour-01",
-    image: "/harry/fine-line-tour-01.svg",
-    era: "Fine Line",
-    year: "2020",
-    label: "Fine Line Tour Harry",
-    tags: ["longer-hair", "colorful", "tour", "jumpsuit"],
+    id: "2021-01",
+    year: "2021",
+    label: "Blue Chevron Suit",
+    tags: ["tour", "chevron", "guitar", "sequins"],
   },
 
-  // 2022 — Harry's House
+  // 2022–2024 — Harry's House
   {
-    id: "harrys-house-kitchen-01",
-    image: "/harry/harrys-house-kitchen-01.jpg",
-    era: "Harry's House",
+    id: "2022-01",
     year: "2022",
-    label: "Kitchen Harry",
-    tags: ["mustache", "yellow-sweater", "red-tie", "domestic", "quirky"],
+    label: "Cream Sleeveless Vest",
+    tags: ["live", "vest", "high-waisted", "tour"],
   },
   {
-    id: "harrys-house-yellow-sweater-01",
-    image: "/harry/harrys-house-yellow-sweater-01.jpg",
-    era: "Harry's House",
+    id: "2022-02",
     year: "2022",
-    label: "Yellow Sweater Editorial",
-    tags: ["short-hair", "colorful", "sunglasses", "domestic"],
+    label: "Pink Feather Coat",
+    tags: ["coachella", "feathers", "pink", "stage"],
   },
   {
-    id: "harrys-house-desert-01",
-    image: "/harry/harrys-house-desert-01.jpg",
-    era: "Harry's House",
+    id: "2022-03",
     year: "2022",
-    label: "Desert Hat Harry",
-    tags: ["shirtless", "tattoos", "outdoors", "sunny", "casual"],
+    label: "Disco Sequin Vest",
+    tags: ["sequins", "disco", "live", "tour"],
   },
   {
-    id: "harrys-house-blue-satin-01",
-    image: "/harry/harrys-house-blue-satin-01.jpg",
-    era: "Harry's House",
+    id: "2022-04",
     year: "2022",
-    label: "Blue Satin Jacket",
-    tags: ["short-hair", "mustache", "blue-jacket", "satin", "live"],
+    label: "Mirror Sequin Overalls",
+    tags: ["sequins", "coachella", "shirtless", "live"],
   },
   {
-    id: "harrys-house-studio-01",
-    image: "/harry/harrys-house-studio-01.jpg",
-    era: "Harry's House",
+    id: "2022-05",
     year: "2022",
-    label: "Studio Rehearsal",
-    tags: ["short-hair", "hoodie", "studio", "casual", "stubble"],
+    label: "Desert Duck Hat",
+    tags: ["shirtless", "outdoors", "hat", "editorial"],
   },
   {
-    id: "harrys-house-brits-01",
-    image: "/harry/harrys-house-brits-01.jpg",
-    era: "Harry's House",
+    id: "2023-01",
     year: "2023",
-    label: "BRITs Performance",
-    tags: ["high-waisted", "pinstripes", "live", "energetic"],
+    label: "Grammys Cream Blazer",
+    tags: ["grammys", "sequins", "award", "suit"],
   },
   {
-    id: "harrys-house-grammys-01",
-    image: "/harry/harrys-house-grammys-01.jpg",
-    era: "Harry's House",
-    year: "2023",
-    label: "Grammys Cream Tux",
-    tags: ["sequins", "suit", "award-show", "jewelry"],
-  },
-  {
-    id: "harrys-house-grammys-pinstripe-01",
-    image: "/harry/harrys-house-grammys-pinstripe-01.jpg",
-    era: "Harry's House",
+    id: "2023-02",
     year: "2023",
     label: "Grammys Pinstripe",
-    tags: ["short-hair", "pinstripes", "high-waisted", "live"],
+    tags: ["grammys", "high-waisted", "pinstripes", "live"],
   },
   {
-    id: "harrys-house-pinstripe-01",
-    image: "/harry/harrys-house-pinstripe-01.jpg",
-    era: "Harry's House",
+    id: "2023-03",
     year: "2023",
-    label: "High-Waisted Pinstripe",
-    tags: ["short-hair", "high-waisted", "performance", "editorial"],
+    label: "Grey Glitter Crop Jacket",
+    tags: ["grammys", "glitter", "jeans", "shirtless"],
   },
   {
-    id: "love-on-tour-rainbow-01",
-    image: "/harry/love-on-tour-rainbow-01.jpg",
-    era: "Harry's House",
-    year: "2022",
-    label: "Rainbow Sequin Jumpsuit",
-    tags: ["rainbow", "sequins", "jumpsuit", "live", "flamboyant"],
+    id: "2023-04",
+    year: "2023",
+    label: "Yellow Stripe Knit",
+    tags: ["live", "stripes", "knit", "tour"],
   },
   {
-    id: "love-on-tour-pink-damask-01",
-    image: "/harry/love-on-tour-pink-damask-01.jpg",
-    era: "Harry's House",
-    year: "2022",
-    label: "Pink Damask Suit",
-    tags: ["short-hair", "colorful", "floral-print", "tour", "maximalist"],
+    id: "2023-05",
+    year: "2023",
+    label: "Slane Yellow Stripe",
+    tags: ["live", "stripes", "tour", "stadium"],
   },
   {
-    id: "love-on-tour-heart-overalls-01",
-    image: "/harry/love-on-tour-heart-overalls-01.jpg",
-    era: "Harry's House",
-    year: "2022",
-    label: "Heart Overalls",
-    tags: ["shirtless", "overalls", "hearts", "tattoos", "pink", "live"],
+    id: "2024-01",
+    year: "2024",
+    label: "Navy Jacket & Florals",
+    tags: ["editorial", "navy", "flowers", "studio"],
+  },
+  {
+    id: "2024-02",
+    year: "2024",
+    label: "Runner's World",
+    tags: ["athletic", "shirtless", "outdoors", "short-hair"],
   },
 
   // 2026 — Kiss All the Time. Disco, Occasionally.
   {
-    id: "current-harry-runners-world-01",
-    image: "/harry/current-harry-runners-world-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
-    year: "2026",
-    label: "Runner's World",
-    tags: ["short-hair", "shirtless", "tattoos", "athletic", "golden-hour"],
-  },
-  {
-    id: "current-harry-running-01",
-    image: "/harry/current-harry-running-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
+    id: "2026-01",
     year: "2026",
     label: "Desert Run",
-    tags: ["shirtless", "tattoos", "athletic", "sunglasses", "outdoor"],
-  },
-  {
-    id: "current-harry-cowboy-01",
-    image: "/harry/current-harry-cowboy-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
-    year: "2026",
-    label: "Cowboy Harry",
-    tags: ["cowboy-hat", "mustache", "black-and-white", "editorial", "western"],
-  },
-  {
-    id: "current-harry-hoodie-01",
-    image: "/harry/current-harry-hoodie-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
-    year: "2026",
-    label: "Short Hair & Stubble",
-    tags: ["short-hair", "stubble", "casual", "candid", "hoodie"],
-  },
-  {
-    id: "current-harry-blue-jacket-01",
-    image: "/harry/current-harry-blue-jacket-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
-    year: "2026",
-    label: "Blue Jacket & Matcha",
-    tags: ["short-hair", "mustache", "casual", "street-style", "blue-jacket"],
-  },
-  {
-    id: "current-harry-street-01",
-    image: "/harry/current-harry-street-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
-    year: "2026",
-    label: "Street Style Cap",
-    tags: ["oversized-shirt", "wide-leg", "casual", "street-style", "sunglasses"],
-  },
-  {
-    id: "current-harry-jogging-01",
-    image: "/harry/current-harry-jogging-01.jpg",
-    era: "Kiss All the Time. Disco, Occasionally.",
-    year: "2026",
-    label: "Jogging in the City",
-    tags: ["casual", "streetwear", "running", "tattoos", "athleisure"],
+    tags: ["athletic", "shirtless", "desert", "sunglasses"],
   },
 ];
+
+export const harryPhotos: HarryPhoto[] = PHOTO_SEEDS.map((seed) => ({
+  id: seed.id,
+  image: `/harry/${seed.id}.jpg`,
+  era: eraForYear(seed.year),
+  year: seed.year,
+  label: seed.label,
+  tags: seed.tags,
+}));
 
 export const getEras = (photos: HarryPhoto[] = harryPhotos): string[] => {
   const seen = new Set<string>();
@@ -234,9 +182,9 @@ export const getPhotoById = (id: string): HarryPhoto | undefined =>
   harryPhotos.find((photo) => photo.id === id);
 
 export const ERA_YEAR_RANGES: Record<string, string> = {
-  "Harry Styles": "2017–2018",
+  "Harry Styles": "2017",
   "Fine Line": "2019–2021",
-  "Harry's House": "2022–2023",
+  "Harry's House": "2022–2024",
   "Kiss All the Time. Disco, Occasionally.": "2026",
 };
 

@@ -1,50 +1,33 @@
-# Harry photo filenames
+# Harry photos (`year-number.jpg`)
 
-Drop your images into this folder using these exact names (or update paths in `src/data/harryData.ts`).
-
-## Eras (4)
+Files use `{year}-{nn}.jpg`. Eras come from year → era mapping in `src/data/harryData.ts`.
 
 | Year | Era |
 |------|-----|
 | 2017 | Harry Styles |
-| 2019 | Fine Line |
-| 2022 | Harry's House |
+| 2019–2021 | Fine Line |
+| 2022–2024 | Harry's House |
 | 2026 | Kiss All the Time. Disco, Occasionally. |
 
-## Harry Styles (2017)
+## Current files
 
-- `hs1-debut-01.jpg` (currently `.svg` placeholder)
-- `hs1-aria-paisley-01.jpg`
+### Harry Styles (2017)
+- `2017-01.jpg` — SNL Tropical Shirt
+- `2017-02.jpg` — Harlequin Gucci Suit
+- `2017-03.jpg` — Red Floral Guitar
 
-## Fine Line (2019)
+### Fine Line (2019–2021)
+- `2019-01.jpg` — Met Gala Sheer Black
+- `2019-02.jpg` — Fine Line Promo Pastel
+- `2021-01.jpg` — Blue Chevron Suit
+- *(no `2020-xx` yet — add when you have one)*
 
-- `fine-line-pearls-01.jpg`
-- `fine-line-pastel-01.jpg`
-- `fine-line-tour-01.jpg` (currently `.svg` placeholder)
+### Harry's House (2022–2024)
+- `2022-01.jpg` … `2022-05.jpg`
+- `2023-01.jpg` … `2023-05.jpg`
+- `2024-01.jpg` … `2024-02.jpg`
 
-## Harry's House (2022)
+### Kiss All the Time. Disco, Occasionally. (2026)
+- `2026-01.jpg` — Desert Run
 
-- `harrys-house-kitchen-01.jpg`
-- `harrys-house-yellow-sweater-01.jpg`
-- `harrys-house-desert-01.jpg`
-- `harrys-house-blue-satin-01.jpg`
-- `harrys-house-studio-01.jpg`
-- `harrys-house-brits-01.jpg`
-- `harrys-house-grammys-01.jpg`
-- `harrys-house-grammys-pinstripe-01.jpg`
-- `harrys-house-pinstripe-01.jpg`
-- `love-on-tour-rainbow-01.jpg`
-- `love-on-tour-pink-damask-01.jpg`
-- `love-on-tour-heart-overalls-01.jpg`
-
-## Kiss All the Time. Disco, Occasionally. (2026)
-
-- `current-harry-runners-world-01.jpg`
-- `current-harry-running-01.jpg`
-- `current-harry-cowboy-01.jpg`
-- `current-harry-hoodie-01.jpg`
-- `current-harry-blue-jacket-01.jpg`
-- `current-harry-street-01.jpg`
-- `current-harry-jogging-01.jpg`
-
-When replacing an `.svg` placeholder, also update the `image` field in `src/data/harryData.ts` from `.svg` to `.jpg`.
+Add more with the next free `nn` for that year, then append an entry in `PHOTO_SEEDS` inside `harryData.ts`.
