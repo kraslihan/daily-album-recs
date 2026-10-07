@@ -39,6 +39,6 @@ export type PersistableState = Omit<GameState, "currentPair" | "hydrated"> & {
   currentPairIds: [string, string] | null;
 };
 
-export const STORAGE_KEY = "harry-era-battle-v4";
+export const STORAGE_KEY = "harry-era-battle-v5";
 export const TARGET_MATCHES = 15;
 export const MAX_MAYBE_ROUNDS = 4;

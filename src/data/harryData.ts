@@ -32,9 +32,11 @@ type PhotoSeed = {
 /**
  * Files live in /public/harry/ as `{year}-{nn}.jpg`.
  * Eras are derived from YEAR_TO_ERA — not hard-coded in the UI.
- * Photos are added era-by-era; currently only Harry Styles (2017).
+ * Photos are added era-by-era.
+ * Current: Harry Styles (2017) + Fine Line (2019–2021).
  */
 const PHOTO_SEEDS: PhotoSeed[] = [
+  // Harry Styles — 2017
   {
     id: "2017-01",
     year: "2017",
@@ -82,6 +84,66 @@ const PHOTO_SEEDS: PhotoSeed[] = [
     year: "2017",
     label: "Red Floral Guitar",
     tags: ["floral", "guitar", "suit", "live"],
+  },
+
+  // Fine Line — 2019
+  {
+    id: "2019-01",
+    year: "2019",
+    label: "Met Gala Sheer Black",
+    tags: ["met-gala", "pearls", "sheer", "editorial"],
+  },
+  {
+    id: "2019-02",
+    year: "2019",
+    label: "Rolling Stone Meadow",
+    tags: ["rolling-stone", "jumpsuit", "outdoors", "editorial"],
+  },
+  {
+    id: "2019-03",
+    year: "2019",
+    label: "Fine Line Album Cover",
+    tags: ["album", "pink", "fisheye", "promo"],
+  },
+  {
+    id: "2019-04",
+    year: "2019",
+    label: "Ruffle Sleeves B&W",
+    tags: ["ruffles", "black-and-white", "editorial", "playful"],
+  },
+  {
+    id: "2019-05",
+    year: "2019",
+    label: "Pastel Promo Stripes",
+    tags: ["pastel", "promo", "editorial", "tank"],
+  },
+
+  // Fine Line — 2020
+  {
+    id: "2020-01",
+    year: "2020",
+    label: "Vogue Dress Cover",
+    tags: ["vogue", "dress", "gucci", "cover"],
+  },
+
+  // Fine Line — 2021
+  {
+    id: "2021-01",
+    year: "2021",
+    label: "Cream Vest Live",
+    tags: ["live", "vest", "tour", "smile"],
+  },
+  {
+    id: "2021-02",
+    year: "2021",
+    label: "Rainbow Sequin Jumpsuit",
+    tags: ["sequins", "rainbow", "tour", "live"],
+  },
+  {
+    id: "2021-03",
+    year: "2021",
+    label: "Grammys Feather Boa",
+    tags: ["grammys", "boa", "leather", "live"],
   },
 ];
 
